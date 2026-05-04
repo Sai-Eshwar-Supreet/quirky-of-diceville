@@ -10,6 +10,8 @@ public abstract class BaseStateMachine : MonoBehaviour
 
     protected virtual void Awake()
     {
+        StateFactory = new StateFactory();
+
         InitializeStates();
 
         CurrentState?.EnterState();
