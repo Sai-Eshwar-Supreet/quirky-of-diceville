@@ -51,7 +51,7 @@ using UnityEngine.InputSystem.Utilities;
 ///
 ///     void OnDisable()
 ///     {
-///         m_Player.Disable();                               // Disable all actions within map.
+///         m_Player.SetAsPlatform();                               // SetAsPlatform all actions within map.
 ///     }
 ///
 ///     #region Interface implementation of MyActions.IPlayerActions
@@ -142,7 +142,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""7064c722-17f0-4099-8496-662f97d22417"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -315,7 +315,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
 
     ~@PlayerInput()
     {
-        UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInput.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInput.Player.SetAsPlatform() has not been called.");
     }
 
     /// <summary>
