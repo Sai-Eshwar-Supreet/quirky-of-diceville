@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2382dea09fd9848a9a8ff72635e951, type: 3}
+  m_Name: DiceDataRegistry
+  m_EditorClassIdentifier: Assembly-CSharp::DiceDataRegistry
+  _valueData:
+  - {fileID: 11400000, guid: 2698d9d209558d540946aa64b8379397, type: 2}
+  - {fileID: 11400000, guid: 2f944f03306948d4e8068265470084b6, type: 2}
+  - {fileID: 11400000, guid: 63b21e97bf433484288aeee9ab839a70, type: 2}
+  - {fileID: 11400000, guid: 4fc5dbc02a799634cb1f85d73225b1e2, type: 2}
+  - {fileID: 11400000, guid: 751e9974defd9cf4f850639f0d47668d, type: 2}
+  - {fileID: 11400000, guid: e3a3a420961a3e9428f4d51dd82fcdb3, type: 2}
+  - {fileID: 11400000, guid: 0bb4969fc3382b348ad2b4d327f752fb, type: 2}
+  _colorData:
+  - {fileID: 11400000, guid: ff84215071629d64a902ac969f4797f4, type: 2}
+  - {fileID: 11400000, guid: 4fd0cadf955181545965147b3a708e62, type: 2}
+  - {fileID: 11400000, guid: d3e66c27b029de044b27d4157d86e571, type: 2}
+  - {fileID: 11400000, guid: 638ad3cda2c51e1468133e818fc4deea, type: 2}
+  - {fileID: 11400000, guid: 695e4a03cda75964f8fe33e32e6e5e8d, type: 2}
+  - {fileID: 11400000, guid: 8edb914aeacfb5b458103806baff5167, type: 2}
+  - {fileID: 11400000, guid: 7e633748645b7ed4fa2fc093bbc3231a, type: 2}
