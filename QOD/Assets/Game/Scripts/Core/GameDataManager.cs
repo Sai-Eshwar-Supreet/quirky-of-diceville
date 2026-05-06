@@ -1,25 +1,29 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[DefaultExecutionOrder(-1)]
 public class GameDataManager : MonoSingleton<GameDataManager>
 {
-    [SerializeField] private Color _platformColor = Color.white;
-    [SerializeField] private List<Color> _diceColors;
+    [SerializeField] private DiceDataRegistry _diceDataRegistry;
 
+    [SerializeField] private Color _platformColor = Color.white;
     [SerializeField] private Texture2D _platformTexture;
-    [SerializeField] private List<Texture2D> _diceValueTextures;
     public Color PlatformColor => _platformColor;
     public Texture2D PlatformTexture => _platformTexture;
 
     public Color GetColorForDice(int colorIndex)
     {
-        if (colorIndex < 0 || colorIndex >= _diceColors.Count) return PlatformColor;
-        return _diceColors[colorIndex];
-    } 
+        if(_diceDataRegistry.TryGetDiceColor(colorIndex, out var color)) {
+            return color;
+        }
+        return PlatformColor;
+    }
 
     public Texture2D GetValueTextureForDice(int valueIndex)
     {
-        if (valueIndex < 0 || valueIndex >= _diceValueTextures.Count) return PlatformTexture;
-        return _diceValueTextures[valueIndex];
+        if(_diceDataRegistry.TryGetDiceTexture(valueIndex, out var texture)) {
+            return texture;
+        }
+        return PlatformTexture;
     }
 }
