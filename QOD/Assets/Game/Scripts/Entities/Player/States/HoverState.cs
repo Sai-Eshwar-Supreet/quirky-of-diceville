@@ -9,7 +9,7 @@ public class HoverState : BaseState<PlayerFSM>
     public override void EnterState()
     {
         Debug.Log("Entering Hover State");
-        Context.Move(Vector3.up);
+        Context.Hover();
     }
 
     public override void UpdateState()
@@ -25,7 +25,7 @@ public class HoverState : BaseState<PlayerFSM>
 
     public override void ExitState()
     {
-        Context.Move(Vector3.down);
+        Context.Hover();
         Debug.Log("Exiting Hover State");
     }
 }

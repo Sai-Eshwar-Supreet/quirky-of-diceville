@@ -13,7 +13,7 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void UpdateState()
     {
-        Context.Move(new Vector3(Context.MoveInput.x, 0, Context.MoveInput.y));
+        Context.Move();
         CheckSwitchStates();
     }
 

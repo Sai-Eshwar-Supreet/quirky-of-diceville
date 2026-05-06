@@ -1,12 +1,13 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFSM[] _players;
+    [SerializeField] private CinemachineCamera _camera;
     private readonly PlayerInputManager _playerInputManager = new();
 
     private int _currentPlayerIndex;
-
 
     protected void Awake()
     {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
         _playerInputManager.Init();
         _currentPlayerIndex = 0;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
+        _camera.Follow = _players[_currentPlayerIndex].transform;
     }
 
     private void OnEnable()
@@ -34,11 +36,21 @@ public class PlayerController : MonoBehaviour
         _playerInputManager.Disable();
     }
 
-    private void OnSwitch()
+    private void OnSwitch(int direction)
     {
-        _players[_currentPlayerIndex].SupplyActivationInput(false);
-        _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Length;
+        ResetCurrentPlayer();
+        int length = _players.Length;
+        _currentPlayerIndex = (length + _currentPlayerIndex + direction) % length;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
+        _camera.Follow = _players[_currentPlayerIndex].transform;
+    }
+
+    private void ResetCurrentPlayer()
+    {
+        var previousPlayer = _players[_currentPlayerIndex];
+        previousPlayer.SupplyMoveInput(Vector2.zero);
+        previousPlayer.SupplyHoverInput(false);
+        previousPlayer.SupplyActivationInput(false);
     }
 
     private void OnMove(Vector2 vector)

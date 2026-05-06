@@ -18,6 +18,16 @@ public class PlayerFSM : BaseStateMachine
 
     public bool IsAcive { get; private set; } = false;
 
+    private float _groundedY = 0;
+    private float HoveredY => _groundedY + _hoverOffset;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        _groundedY = transform.position.y;
+    }
+
     public void SupplyMoveInput(Vector2 vector)
     {
         MoveInput = vector;
@@ -43,16 +53,25 @@ public class PlayerFSM : BaseStateMachine
         CurrentState = StateFactory.GetState<IdleState>();
     }
 
-    public void Move(Vector3 units)
+    public void Move()
     {
-        if (IsMoving || units == Vector3.zero) return;
-        var targetPos = transform.position + new Vector3(units.x * _moveOffset.x, units.y * _hoverOffset, units.z * _moveOffset.y);
+        if (IsMoving || !IsMovePressed) return;
+        var targetPos = transform.position + new Vector3(MoveInput.x * _moveOffset.x, 0, MoveInput.y * _moveOffset.y);
 
         if (CheckGroundAvailability(targetPos) && CheckSpaceAvailability(targetPos))
         {
             IsMoving = true;
             transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase).onComplete += () => IsMoving = false;
         }
+    }
+
+    public void Hover()
+    {
+        var y = ( IsHoverPressed ? HoveredY : _groundedY);
+
+        transform.DOKill();
+        IsMoving = true;
+        transform.DOMoveY(y, _moveDuration).SetEase(_moveEase).onComplete += () => IsMoving = false;
     }
 
     private bool CheckGroundAvailability(Vector3 requestedLocation, float maxDistance = 1f)
