@@ -8,9 +8,8 @@ public class PlayerInputManager
 
     public event Action<Vector2> OnMove;
     public event Action<bool> OnHover;
-    public event Action OnColorChange;
-    public event Action OnValueChange;
-    public event Action OnPlayerSwitch;
+    public event Action<bool> OnAppearanceMenuInput;
+    public event Action<int> OnPlayerSwitch;
 
 
     public void Init()
@@ -20,6 +19,8 @@ public class PlayerInputManager
 
     public void Enable()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _playerActions.Enable();
 
         _playerActions.Move.performed += MoveEventHandler;
@@ -28,24 +29,24 @@ public class PlayerInputManager
         _playerActions.Hover.performed += HoverEventHandler;
         _playerActions.Hover.canceled += HoverEventHandler;
 
-        _playerActions.ChangeColor.performed += ColorChangeEventHandler;
-
-        _playerActions.ChangeValue.performed += ValueChangeEventHandler;
+        _playerActions.ChangeAppearance.performed += OnAppreanceMenuEventHandler;
+        _playerActions.ChangeAppearance.canceled += OnAppreanceMenuEventHandler;
 
         _playerActions.Switch.performed += SwitchEventHandler;
     }
 
     public void Disable()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         _playerActions.Move.performed -= MoveEventHandler;
         _playerActions.Move.canceled -= MoveEventHandler;
 
         _playerActions.Hover.performed -= HoverEventHandler;
         _playerActions.Hover.canceled -= HoverEventHandler;
 
-        _playerActions.ChangeColor.performed -= ColorChangeEventHandler;
-
-        _playerActions.ChangeValue.performed -= ValueChangeEventHandler;
+        _playerActions.ChangeAppearance.performed -= OnAppreanceMenuEventHandler;
+        _playerActions.ChangeAppearance.canceled -= OnAppreanceMenuEventHandler;
 
         _playerActions.Switch.performed -= SwitchEventHandler;
 
@@ -60,16 +61,12 @@ public class PlayerInputManager
     {
         OnHover?.Invoke(context.ReadValueAsButton());
     }
-    private void ColorChangeEventHandler(InputAction.CallbackContext context)
+    private void OnAppreanceMenuEventHandler(InputAction.CallbackContext context)
     {
-        OnColorChange?.Invoke();
-    }
-    private void ValueChangeEventHandler(InputAction.CallbackContext context)
-    {
-        OnValueChange?.Invoke();
+        OnAppearanceMenuInput?.Invoke(context.ReadValueAsButton());
     }
     private void SwitchEventHandler(InputAction.CallbackContext context)
     {
-        OnPlayerSwitch?.Invoke();
+        OnPlayerSwitch?.Invoke((int)context.ReadValue<float>());
     }
 }
