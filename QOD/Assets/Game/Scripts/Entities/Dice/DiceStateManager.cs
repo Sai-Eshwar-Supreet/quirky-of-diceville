@@ -39,23 +39,25 @@ public class DiceStateManager : MonoBehaviour
     public void SetColor(int colorIndex)
     {
         _colorIndex = colorIndex;
-        var color = GameDataManager.Instance.GetColorForDice(_colorIndex);
+        var color = ServiceLocator.Get<GameDataManager>().GetColorForDice(_colorIndex);
         Material.SetColor("_BaseColor", color);
     }
 
     public void SetValue(int valueIndex)
     {
         _valueIndex = valueIndex;
-        var tex2D = GameDataManager.Instance.GetValueTextureForDice(_valueIndex);
+        var tex2D = ServiceLocator.Get<GameDataManager>().GetValueTextureForDice(_valueIndex);
         Material.SetTexture("_BaseMap", tex2D);
     }
 
-    public void SetAsPlatform()
+    public void ResetDice()
     {
         _colorIndex = -1;
         _valueIndex = -1;
 
-        Material.SetColor("_BaseColor", GameDataManager.Instance.PlatformColor);
-        Material.SetTexture("_BaseMap", GameDataManager.Instance.PlatformTexture);
+        var _gameDataManager = ServiceLocator.Get<GameDataManager>();
+
+        Material.SetColor("_BaseColor", _gameDataManager.DefaultColor);
+        Material.SetTexture("_BaseMap", _gameDataManager.DefaultTexture);
     }
 }
