@@ -7,8 +7,8 @@ public class DiceDataRegistry : ScriptableObject
     [SerializeField] private DiceValueData[] _valueData;
     [SerializeField] private DiceColorData[] _colorData;
 
-    public int ValueDataCount => _valueData.Length;
-    public int ColorDataCount => _colorData.Length;
+    public DiceValueData[] ValueDataList => _valueData;
+    public DiceColorData[] ColorDataList => _colorData;
 
     public bool TryGetDiceTexture(int valueId, out Texture2D texture)
     {

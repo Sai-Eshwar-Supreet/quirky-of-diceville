@@ -28,7 +28,7 @@ public class Key : MonoBehaviour
 
             if( IsPressed && _keyType == KeyType.OneTime)
             {
-                _diceStateManager.SetAsPlatform();
+                _diceStateManager.ResetDice();
                 _triggerCollider.enabled = false;
             }
 
