@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Color 4
   m_EditorClassIdentifier: Assembly-CSharp::DiceColorData
   id: 4
-  color: {r: 0.46666667, g: 0.8666667, b: 0.46666667, a: 1}
+  color: {r: 0, g: 0.7372549, b: 0.8901961, a: 1}
