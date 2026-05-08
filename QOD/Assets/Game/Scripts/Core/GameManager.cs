@@ -7,13 +7,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoSingleton<GameManager>
 {
     [SerializeField] private GameDataManager _gameDataManager;
-    [SerializeField] private SaveDataManager _saveDataManager;
 
     private void OnEnable()
     {
         _gameDataManager.Load();
         RegisterServices();
-        _saveDataManager.Load();
     }
 
     private void OnDisable()
@@ -24,13 +22,11 @@ public class GameManager : MonoSingleton<GameManager>
     private void RegisterServices()
     {
         ServiceLocator.Register(_gameDataManager);
-        ServiceLocator.Register(_saveDataManager);
     }
 
     private void UnregisterServices()
     {
         ServiceLocator.Unregister<GameDataManager>();
-        ServiceLocator.Unregister<SaveDataManager>();
     }
 
     public void ExitLevel()
