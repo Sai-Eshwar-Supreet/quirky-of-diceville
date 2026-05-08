@@ -16,6 +16,11 @@ public class Key : MonoBehaviour
     [SerializeField] private Collider _triggerCollider;
     public bool IsPressed { get; private set; } = false;
 
+    private void Awake()
+    {
+        _diceStateManager.Init();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

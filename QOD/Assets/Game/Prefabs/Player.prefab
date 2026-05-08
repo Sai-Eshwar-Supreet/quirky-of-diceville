@@ -67,8 +67,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9ef7341d1a744aa07adc871f03d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
-  _colorIndex: 0
-  _valueIndex: 0
+  _type: -1
+  _defaultColorIndex: 0
+  _defaultValueIndex: 0
   _diceRenderer: {fileID: 4872686520397939706}
 --- !u!65 &7424610024382490263
 BoxCollider:
@@ -243,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9ef7341d1a744aa07adc871f03d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
-  _colorIndex: 0
-  _valueIndex: 0
+  _type: -1
+  _defaultColorIndex: 0
+  _defaultValueIndex: 0
   _diceRenderer: {fileID: 4872686520397939706}

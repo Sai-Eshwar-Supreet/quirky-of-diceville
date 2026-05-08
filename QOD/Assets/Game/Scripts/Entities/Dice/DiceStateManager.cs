@@ -1,63 +1,66 @@
+using System.Drawing;
 using UnityEngine;
 
+[System.Flags]
+public enum DiceType
+{
+    None = 0,
+    Color = 1 << 0,
+    Value = 1 << 1
+}
 public class DiceStateManager : MonoBehaviour
 {
-    [SerializeField] private int _colorIndex = 0;
-    [SerializeField] private int _valueIndex = 0;
+    [SerializeField] private DiceType _type = DiceType.Color | DiceType.Value;
+    [SerializeField] private int _defaultColorIndex = 0;
+    [SerializeField] private int _defaultValueIndex = 0;
     [SerializeField] private MeshRenderer _diceRenderer;
-    
     private Material _material;
-    private Material Material
-    {
-        get
-        {
-            if (_material == null) InitRenderer();
-            return _material;
-        }
-    }
 
-    public int ColorIndex => _colorIndex;
-    public int ValueIndex => _valueIndex;
+    public DiceType Type => _type;
+    public int ColorIndex { get; private set;  }
+    public int ValueIndex { get; private set;  }
 
-    private void Awake()
+    public void Init()
     {
-        if (_material == null) InitRenderer();
-    }
+        if (_material) return;
 
-    private void InitRenderer()
-    {
         _material = new Material(_diceRenderer.material)
         {
             name = $"{gameObject.name} material"
         };
         _diceRenderer.material = _material;
 
-        SetColor(_colorIndex);
-        SetValue(_valueIndex);
+        var _gameDataManager = ServiceLocator.Get<GameDataManager>();
+
+        ColorIndex = _defaultColorIndex;
+        ValueIndex = _defaultValueIndex;
+
+        _material.SetColor("_BaseColor", _gameDataManager.GetColorForDice(ColorIndex));
+        _material.SetTexture("_BaseMap", _gameDataManager.GetValueTextureForDice(ValueIndex));
     }
 
     public void SetColor(int colorIndex)
     {
-        _colorIndex = colorIndex;
-        var color = ServiceLocator.Get<GameDataManager>().GetColorForDice(_colorIndex);
-        Material.SetColor("_BaseColor", color);
+        if(!_type.HasFlag(DiceType.Color)) return;
+
+        ColorIndex = colorIndex;
+        var color = ServiceLocator.Get<GameDataManager>().GetColorForDice(ColorIndex);
+        _material.SetColor("_BaseColor", color);
     }
 
     public void SetValue(int valueIndex)
     {
-        _valueIndex = valueIndex;
-        var tex2D = ServiceLocator.Get<GameDataManager>().GetValueTextureForDice(_valueIndex);
-        Material.SetTexture("_BaseMap", tex2D);
+        if (!_type.HasFlag(DiceType.Value)) return;
+
+        ValueIndex = valueIndex;
+        var tex2D = ServiceLocator.Get<GameDataManager>().GetValueTextureForDice(ValueIndex);
+        _material.SetTexture("_BaseMap", tex2D);
     }
 
     public void ResetDice()
     {
-        _colorIndex = -1;
-        _valueIndex = -1;
-
-        var _gameDataManager = ServiceLocator.Get<GameDataManager>();
-
-        Material.SetColor("_BaseColor", _gameDataManager.DefaultColor);
-        Material.SetTexture("_BaseMap", _gameDataManager.DefaultTexture);
+        
+        SetColor(_defaultColorIndex);
+        SetValue(_defaultValueIndex);
     }
 }

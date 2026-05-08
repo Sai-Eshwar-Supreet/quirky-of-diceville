@@ -8,6 +8,10 @@ public class Exit : MonoBehaviour
     public bool IsAprropriateMatch { get; private set; } = false;
 
     public event Action OnExitInteracted;
+    private void Awake()
+    {
+        _diceStateManager.Init();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
