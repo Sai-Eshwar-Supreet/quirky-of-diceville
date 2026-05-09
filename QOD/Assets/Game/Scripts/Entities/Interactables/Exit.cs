@@ -15,6 +15,22 @@ public class Exit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Interact(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        Interact(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        ExitInteraction(other);
+    }
+
+
+    private void Interact(Collider other)
+    {
         if (other.CompareTag("Player"))
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
@@ -22,11 +38,11 @@ public class Exit : MonoBehaviour
             var playerValue = playerDiceState.ValueIndex;
 
             IsAprropriateMatch = (playerColor == _diceStateManager.ColorIndex && playerValue == _diceStateManager.ValueIndex);
+            Debug.Log($"{other.gameObject}  | {gameObject} | {IsAprropriateMatch} => {playerColor} == {_diceStateManager.ColorIndex} && {playerValue} == {_diceStateManager.ValueIndex}");
             OnExitInteracted?.Invoke();
         }
     }
-
-    private void OnTriggerExit(Collider other)
+    private void ExitInteraction(Collider other)
     {
         if (other.CompareTag("Player"))
         {

@@ -1345,6 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
   _startButton: {fileID: 989203416}
+  _quitButton: {fileID: 1773633401}
 --- !u!1 &1255754368
 GameObject:
   m_ObjectHideFlags: 0
