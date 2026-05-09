@@ -34,7 +34,7 @@ public class ServiceLocator : MonoBehaviour
         var type = typeof(T);
         if (_services.TryGetValue(type, out var service)) return (T)service;
 
-        Debug.LogError($"Service of type {type} is not registered.");
+        Debug.LogWarning($"Service of type {type} is not registered.");
         return default;
     }
 }

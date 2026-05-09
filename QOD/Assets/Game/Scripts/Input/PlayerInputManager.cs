@@ -17,10 +17,22 @@ public class PlayerInputManager
         _playerActions = new PlayerInput().Player;
     }
 
+    public void SetCursorState(bool isLocked)
+    {
+        if (isLocked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
     public void Enable()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         _playerActions.Enable();
 
         _playerActions.Move.performed += MoveEventHandler;
@@ -37,8 +49,6 @@ public class PlayerInputManager
 
     public void Disable()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         _playerActions.Move.performed -= MoveEventHandler;
         _playerActions.Move.canceled -= MoveEventHandler;
 

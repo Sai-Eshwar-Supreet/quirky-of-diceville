@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-100)]
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameDataManager _gameDataManager;
+    [SerializeField] private LoadingManger _loadingManger;
 
     private void OnEnable()
     {
@@ -22,15 +20,12 @@ public class GameManager : MonoSingleton<GameManager>
     private void RegisterServices()
     {
         ServiceLocator.Register(_gameDataManager);
+        ServiceLocator.Register(_loadingManger);
     }
 
     private void UnregisterServices()
     {
         ServiceLocator.Unregister<GameDataManager>();
-    }
-
-    public void ExitLevel()
-    {
-
+        ServiceLocator.Unregister<LoadingManger>();
     }
 }

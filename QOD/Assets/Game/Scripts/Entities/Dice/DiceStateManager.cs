@@ -11,8 +11,8 @@ public enum DiceType
 public class DiceStateManager : MonoBehaviour
 {
     [SerializeField] private DiceType _type = DiceType.Color | DiceType.Value;
-    [SerializeField] private int _defaultColorIndex = 0;
-    [SerializeField] private int _defaultValueIndex = 0;
+    [SerializeField] private int _startColorIndex = 0;
+    [SerializeField] private int _startValueIndex = 0;
     [SerializeField] private MeshRenderer _diceRenderer;
     private Material _material;
 
@@ -32,8 +32,8 @@ public class DiceStateManager : MonoBehaviour
 
         var _gameDataManager = ServiceLocator.Get<GameDataManager>();
 
-        ColorIndex = _defaultColorIndex;
-        ValueIndex = _defaultValueIndex;
+        ColorIndex = _startColorIndex;
+        ValueIndex = _startValueIndex;
 
         _material.SetColor("_BaseColor", _gameDataManager.GetColorForDice(ColorIndex));
         _material.SetTexture("_BaseMap", _gameDataManager.GetValueTextureForDice(ValueIndex));
@@ -59,8 +59,7 @@ public class DiceStateManager : MonoBehaviour
 
     public void ResetDice()
     {
-        
-        SetColor(_defaultColorIndex);
-        SetValue(_defaultValueIndex);
+        SetColor(-1);
+        SetValue(-1);
     }
 }

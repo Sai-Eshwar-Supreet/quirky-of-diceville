@@ -8,7 +8,7 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void EnterState()
     {
-        Debug.Log("Entering Move State");
+
     }
 
     public override void UpdateState()
@@ -25,6 +25,6 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Move State");
+
     }
 }

@@ -8,7 +8,7 @@ public class ExitsManager : MonoBehaviour
     {
         foreach (var exit in _exits)
         {
-            exit.OnExitInteracted += CheckAndExit;
+            exit.OnExitInteracted += GoToNextLevel;
         }
     }
 
@@ -16,17 +16,17 @@ public class ExitsManager : MonoBehaviour
     {
         foreach (var exit in _exits)
         {
-            exit.OnExitInteracted -= CheckAndExit;
+            exit.OnExitInteracted -= GoToNextLevel;
         }
     }
 
-    private void CheckAndExit()
+    private void GoToNextLevel()
     {
         foreach (var exit in _exits)
         {
             if (!exit.IsAprropriateMatch) return;
         }
 
-        GameManager.Instance.ExitLevel();
+        LevelManager.Instance.GoToNextLevel();
     }
 }

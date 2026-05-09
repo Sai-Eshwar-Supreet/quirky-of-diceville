@@ -21,9 +21,13 @@ public class Key : MonoBehaviour
         _diceStateManager.Init();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) => Interact(other);
+    private void OnTriggerStay(Collider other) => Interact(other);
+    private void OnTriggerExit(Collider other) => ExitInteraction(other);
+
+    private void Interact(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
             var playerColor = playerDiceState.ColorIndex;
@@ -31,20 +35,20 @@ public class Key : MonoBehaviour
 
             IsPressed = (playerColor == _diceStateManager.ColorIndex) && (playerValue == _diceStateManager.ValueIndex);
 
-            if( IsPressed && _keyType == KeyType.OneTime)
+            if (IsPressed && _keyType == KeyType.OneTime)
             {
                 _diceStateManager.ResetDice();
                 _triggerCollider.enabled = false;
             }
 
-            foreach(var door in _doors)
+            foreach (var door in _doors)
             {
                 door.Unlock();
             }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void ExitInteraction(Collider other)
     {
         if (other.CompareTag("Player") && _keyType == KeyType.PressurePlate)
         {

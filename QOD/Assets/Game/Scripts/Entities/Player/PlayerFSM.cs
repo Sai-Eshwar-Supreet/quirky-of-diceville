@@ -9,6 +9,7 @@ public class PlayerFSM : BaseStateMachine
     [SerializeField] private float _hoverOffset = 1f;
     [SerializeField] private float _moveDuration = 0.5f;
     [SerializeField] private LayerMask _platformMask;
+    [SerializeField] private DiceStateManager _diceStateManager;
 
     public bool IsMovePressed => MoveInput != Vector2.zero;
     public Vector2 MoveInput { get; private set; }
@@ -17,6 +18,8 @@ public class PlayerFSM : BaseStateMachine
     public bool IsMoving { get; private set; } = false;
 
     public bool IsAcive { get; private set; } = false;
+    public int ColorId => _diceStateManager.ColorIndex;
+    public int ValueId => _diceStateManager.ValueIndex;
 
     private float _groundedY = 0;
     private float HoveredY => _groundedY + _hoverOffset;
@@ -26,6 +29,7 @@ public class PlayerFSM : BaseStateMachine
         base.Awake();
 
         _groundedY = transform.position.y;
+        _diceStateManager.Init();
     }
 
     public void SupplyMoveInput(Vector2 vector)
@@ -41,6 +45,16 @@ public class PlayerFSM : BaseStateMachine
     public void SupplyActivationInput(bool isActive)
     {
         IsAcive = isActive;
+    }
+
+    public void SupplyColorId(int id)
+    {
+        _diceStateManager.SetColor(id);
+    }
+
+    public void SupplyValueId(int id)
+    {
+        _diceStateManager.SetValue(id);
     }
 
     public override void InitializeStates()

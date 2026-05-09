@@ -8,7 +8,7 @@ public class InactiveState : BaseState<PlayerFSM>
 
     public override void EnterState()
     {
-        Debug.Log("Entering Inactive State");
+
     }
 
     public override void UpdateState()
@@ -23,6 +23,6 @@ public class InactiveState : BaseState<PlayerFSM>
 
     public override void ExitState()
     {
-        Debug.Log("Exiting Inactive State");
+
     }
 }
