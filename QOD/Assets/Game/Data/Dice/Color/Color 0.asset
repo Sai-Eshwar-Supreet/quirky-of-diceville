@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee788f8935b93694b9c7bc5841b5cd7c, type: 3}
   m_Name: Color 0
   m_EditorClassIdentifier: Assembly-CSharp::DiceColorData
-  id: 0
-  color: {r: 1, g: 1, b: 1, a: 1}
+  _id: 0
+  _color: {r: 1, g: 1, b: 1, a: 1}
