@@ -55,6 +55,7 @@ MonoBehaviour:
   _platformMask:
     serializedVersion: 2
     m_Bits: 192
+  _diceStateManager: {fileID: 8951878891988302556}
 --- !u!114 &8951878891988302556
 MonoBehaviour:
   m_ObjectHideFlags: 0
