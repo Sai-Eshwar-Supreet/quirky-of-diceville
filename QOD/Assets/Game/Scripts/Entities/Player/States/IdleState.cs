@@ -18,7 +18,6 @@ public class IdleState : BaseState<PlayerFSM>
 
     public override void CheckSwitchStates()
     {
-        if (Context.IsMoving) return;
         if(!Context.IsAcive) SwitchState<InactiveState>();
         else if (Context.IsMovePressed) SwitchState<MoveState>();
     }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DiceValueData
   _id: 2
   _texture: {fileID: 2800000, guid: 63406289998b01842943134f1c71271c, type: 3}
-  _sprite: {fileID: 21300000, guid: afd6e526025f2754f871d924226a398c, type: 3}
+  _sprite: {fileID: 21300000, guid: e4c8e5b872c414647a6602a68f795914, type: 3}

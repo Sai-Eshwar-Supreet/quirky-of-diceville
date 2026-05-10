@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2327279969142611617}
-  - component: {fileID: 19781593898957647}
-  - component: {fileID: 8951878891988302556}
   - component: {fileID: 7424610024382490263}
   - component: {fileID: 8948902658958763918}
+  - component: {fileID: 19781593898957647}
+  - component: {fileID: 8951878891988302556}
+  - component: {fileID: 1056675310915732050}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2715968833854701425}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,41 +37,6 @@ Transform:
   - {fileID: 7218190944930403383}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &19781593898957647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2715968833854701425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb9d90196515aa4da147a7eca7fb073, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerFSM
-  _moveOffset: {x: 1, y: 1}
-  _moveEase: 4
-  _moveDuration: 0.25
-  _platformMask:
-    serializedVersion: 2
-    m_Bits: 192
-  _diceStateManager: {fileID: 8951878891988302556}
---- !u!114 &8951878891988302556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2715968833854701425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba9ef7341d1a744aa07adc871f03d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
-  _type: -1
-  _startColorIndex: 0
-  _startValueIndex: 0
-  _renderer: {fileID: 100610797779273876}
 --- !u!65 &7424610024382490263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,6 +85,55 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &19781593898957647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715968833854701425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb9d90196515aa4da147a7eca7fb073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFSM
+  _moveOffset: {x: 1, y: 1}
+  _moveEase: 4
+  _moveDuration: 0.25
+  _platformMask:
+    serializedVersion: 2
+    m_Bits: 192
+  _diceStateManager: {fileID: 8951878891988302556}
+  _playerAnimator: {fileID: 1056675310915732050}
+--- !u!114 &8951878891988302556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715968833854701425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba9ef7341d1a744aa07adc871f03d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
+  _type: -1
+  _startColorIndex: 0
+  _startValueIndex: 0
+  _renderer: {fileID: 100610797779273876}
+--- !u!114 &1056675310915732050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2715968833854701425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3aaa7486131e3419588e59619c38c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimator
+  _playerAnimator: {fileID: 1873227772281303632}
 --- !u!1 &4607292636787349129
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,8 +146,9 @@ GameObject:
   - component: {fileID: 426090089423394631}
   - component: {fileID: 4872686520397939706}
   - component: {fileID: 100610797779273876}
+  - component: {fileID: 1873227772281303632}
   m_Layer: 7
-  m_Name: Cube
+  m_Name: Player Visual
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,8 +163,8 @@ Transform:
   m_GameObject: {fileID: 4607292636787349129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2327279969142611617}
@@ -160,7 +176,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4607292636787349129}
-  m_Mesh: {fileID: -5495902117074765545, guid: b1747052f7a3bac4fa46ac69cf15dab3, type: 3}
+  m_Mesh: {fileID: -835688487210165693, guid: b1747052f7a3bac4fa46ac69cf15dab3, type: 3}
 --- !u!23 &4872686520397939706
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -186,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a083f984ce38844438b4fc282f3fb031, type: 2}
+  - {fileID: 2100000, guid: 50f25785054db524eb18dc9e5c1304cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,3 +238,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f3b368e7f028541aeb5e84ff81a1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer
+  _meshRenderer: {fileID: 0}
+--- !u!95 &1873227772281303632
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607292636787349129}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0e0c4466457ebf43856971d2a43efad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -8,23 +8,24 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void EnterState()
     {
-
+        Context.PlayerAnimator.SetIsMoving(true);
     }
 
     public override void UpdateState()
     {
         Context.Move();
+        Context.PlayerAnimator.SetMove(Context.MoveInput);
         CheckSwitchStates();
     }
 
     public override void CheckSwitchStates()
     {
         if (!Context.IsAcive) SwitchState<InactiveState>();
-        else if (!Context.IsMovePressed && !Context.IsMoving) SwitchState<IdleState>();
+        else if (!Context.IsMoving) SwitchState<IdleState>();
     }
 
     public override void ExitState()
     {
-
+        Context.PlayerAnimator.SetIsMoving(false);
     }
 }

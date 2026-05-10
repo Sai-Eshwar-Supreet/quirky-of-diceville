@@ -8,6 +8,7 @@ public class PlayerFSM : BaseStateMachine
     [SerializeField] private float _moveDuration = 0.5f;
     [SerializeField] private LayerMask _platformMask;
     [SerializeField] private DiceStateManager _diceStateManager;
+    [SerializeField] private PlayerAnimator _playerAnimator;
 
     public bool IsMovePressed => MoveInput != Vector2.zero;
     public Vector2 MoveInput { get; private set; }
@@ -19,6 +20,7 @@ public class PlayerFSM : BaseStateMachine
     public int ValueId => _diceStateManager.ValueIndex;
 
     private Tween _moveTween;
+    public PlayerAnimator PlayerAnimator => _playerAnimator;
 
     protected override void Awake()
     {

@@ -33,7 +33,9 @@ public class Key : MonoBehaviour
 
             IsPressed = _diceStateManager.Matches(playerDiceState);
 
-            if (IsPressed && _keyType == KeyType.OneTime)
+            if (!IsPressed) return;
+
+            if (_keyType == KeyType.OneTime)
             {
                 _diceStateManager.Disable();
                 _triggerCollider.enabled = false;
@@ -41,7 +43,7 @@ public class Key : MonoBehaviour
 
             foreach (var door in _doors)
             {
-                door.Unlock();
+                door.SetLockState(true);
             }
         }
     }
@@ -53,7 +55,7 @@ public class Key : MonoBehaviour
             IsPressed = false;
             foreach (var door in _doors)
             {
-                door.Lock();
+                door.SetLockState(false);
             }
         }
     }

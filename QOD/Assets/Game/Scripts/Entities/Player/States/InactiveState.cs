@@ -8,7 +8,7 @@ public class InactiveState : BaseState<PlayerFSM>
 
     public override void EnterState()
     {
-
+        Context.PlayerAnimator.SetInactive(true);
     }
 
     public override void UpdateState()
@@ -23,6 +23,6 @@ public class InactiveState : BaseState<PlayerFSM>
 
     public override void ExitState()
     {
-
+        Context.PlayerAnimator.SetInactive(false);
     }
 }
