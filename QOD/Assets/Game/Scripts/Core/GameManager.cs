@@ -6,13 +6,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameDataManager _gameDataManager;
     [SerializeField] private LoadingManger _loadingManger;
 
-    private void OnEnable()
+    private void Awake()
     {
         _gameDataManager.Load();
         RegisterServices();
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         UnregisterServices();
     }

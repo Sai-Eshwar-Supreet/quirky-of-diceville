@@ -20,7 +20,6 @@ public class IdleState : BaseState<PlayerFSM>
     {
         if (Context.IsMoving) return;
         if(!Context.IsAcive) SwitchState<InactiveState>();
-        else if (Context.IsHoverPressed) SwitchState<HoverState>();
         else if (Context.IsMovePressed) SwitchState<MoveState>();
     }
 

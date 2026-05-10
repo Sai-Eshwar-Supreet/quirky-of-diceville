@@ -1,8 +1,6 @@
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LevelSelectionUI : MonoBehaviour
 {
@@ -27,7 +25,7 @@ public class LevelSelectionUI : MonoBehaviour
         {
             var levelUI = Instantiate(_levelUIPrefab, _levelUIContainer);
             levelUI.SetInteractable(_selectedLevel != levelData.ID);
-            levelUI.Init(levelData.Sprite, () => OnLevelPlayRequested?.Invoke(levelData.ID));
+            levelUI.Set(levelData.Sprite, () => OnLevelPlayRequested?.Invoke(levelData.ID));
 
             _levelUIs.Add(levelData.ID, levelUI);
         }

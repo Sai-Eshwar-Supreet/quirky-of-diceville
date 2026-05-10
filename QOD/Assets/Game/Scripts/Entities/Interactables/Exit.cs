@@ -10,7 +10,7 @@ public class Exit : MonoBehaviour
     public event Action OnExitInteracted;
     private void Awake()
     {
-        _diceStateManager.Init();
+        _diceStateManager.Enable();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,11 +34,8 @@ public class Exit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
-            var playerColor = playerDiceState.ColorIndex;
-            var playerValue = playerDiceState.ValueIndex;
 
-            IsAprropriateMatch = (playerColor == _diceStateManager.ColorIndex && playerValue == _diceStateManager.ValueIndex);
-            Debug.Log($"{other.gameObject}  | {gameObject} | {IsAprropriateMatch} => {playerColor} == {_diceStateManager.ColorIndex} && {playerValue} == {_diceStateManager.ValueIndex}");
+            IsAprropriateMatch = _diceStateManager.Matches(playerDiceState);
             OnExitInteracted?.Invoke();
         }
     }

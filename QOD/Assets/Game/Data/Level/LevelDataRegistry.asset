@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataRegistry
   _levelData:
   - _id: 0
+    _nextLevelId: 1
     _levelPrefab: {fileID: 7863739998407036830, guid: 761bf39d905ded649be2d01679a5a18d, type: 3}
     _sprite: {fileID: 21300000, guid: e4c0894b0a66dad419ff9c17abd01247, type: 3}
   - _id: 1
+    _nextLevelId: 0
     _levelPrefab: {fileID: 7863739998407036830, guid: 2261b81cf0bdaef4ea1b53ff1a36dd51, type: 3}
     _sprite: {fileID: 21300000, guid: b6b780d8bb972454799f533a3877e3c7, type: 3}

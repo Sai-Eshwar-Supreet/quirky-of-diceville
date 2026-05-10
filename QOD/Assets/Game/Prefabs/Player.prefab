@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerFSM
   _moveOffset: {x: 1, y: 1}
   _moveEase: 4
-  _hoverOffset: 1
   _moveDuration: 0.25
   _platformMask:
     serializedVersion: 2
@@ -71,7 +70,7 @@ MonoBehaviour:
   _type: -1
   _startColorIndex: 0
   _startValueIndex: 0
-  _diceRenderer: {fileID: 4872686520397939706}
+  _renderer: {fileID: 100610797779273876}
 --- !u!65 &7424610024382490263
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,7 +130,7 @@ GameObject:
   - component: {fileID: 7218190944930403383}
   - component: {fileID: 426090089423394631}
   - component: {fileID: 4872686520397939706}
-  - component: {fileID: 4661752087735791020}
+  - component: {fileID: 100610797779273876}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Player
@@ -211,7 +210,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4661752087735791020
+--- !u!114 &100610797779273876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,10 +219,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4607292636787349129}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba9ef7341d1a744aa07adc871f03d6a, type: 3}
+  m_Script: {fileID: 11500000, guid: a1f3b368e7f028541aeb5e84ff81a1e6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
-  _type: -1
-  _startColorIndex: 0
-  _startValueIndex: 0
-  _diceRenderer: {fileID: 4872686520397939706}
+  m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer

@@ -9,11 +9,13 @@ public class AppearanceChangeToggle : MonoBehaviour
 
     public Toggle Toggle => _toggle;
 
-    public void Init(Sprite sprite, Color color, Action onClick)
+    public void Set(Sprite sprite, Color color, Action onClick)
     {
         _image.sprite = sprite;
         _image.color = color;
         _toggle.interactable = false;
+
+        ResetButton();
         _toggle.onValueChanged.AddListener(isOn => { if (isOn) onClick?.Invoke(); });
     }
 

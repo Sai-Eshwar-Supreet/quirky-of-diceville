@@ -14,7 +14,7 @@ public class LevelUI : MonoBehaviour
         _playLevelButton.onClick.AddListener(() => _onPlayCallback?.Invoke());
     }
 
-    public void Init(Sprite icon, Action onPlayCallback)
+    public void Set(Sprite icon, Action onPlayCallback)
     {
         _levelImage.sprite = icon;
         _onPlayCallback = onPlayCallback;

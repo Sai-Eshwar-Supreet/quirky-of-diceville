@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5644380172393019569, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
       propertyPath: m_Name
-      value: Platform Unit - Exit Variant
+      value: Platform Unit - Exit
       objectReference: {fileID: 0}
     - target: {fileID: 8340645861045182326, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -65,12 +65,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5644380172393019569, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4694841326182029045}
+    - targetCorrespondingSourceObject: {fileID: 8916001994508974195, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4484576033465933940}
   m_SourcePrefab: {fileID: 100100000, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
---- !u!23 &2272499804298084058 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6970724375247853990, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+--- !u!1 &326923255853833999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8916001994508974195, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
   m_PrefabInstance: {fileID: 9166362819163776892}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4484576033465933940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326923255853833999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f3b368e7f028541aeb5e84ff81a1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer
 --- !u!1 &3558313986122620877 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5644380172393019569, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
@@ -126,4 +141,4 @@ MonoBehaviour:
   _type: 1
   _startColorIndex: 0
   _startValueIndex: 0
-  _diceRenderer: {fileID: 2272499804298084058}
+  _renderer: {fileID: 4484576033465933940}

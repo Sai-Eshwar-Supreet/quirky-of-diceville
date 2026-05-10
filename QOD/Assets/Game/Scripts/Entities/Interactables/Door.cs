@@ -12,11 +12,16 @@ public class Door : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Vector3 _targetPosition;
+    private Tween _moveTween;
 
     private void Awake()
     {
         _targetPosition = _defaultOpen ? _openPosition : _closedPosition;
         _doorTransform.localPosition = _targetPosition;
+    }
+    private void OnDestroy()
+    {
+        if(_moveTween.IsActive()) _moveTween?.Kill();
     }
 
     public void Unlock()
@@ -25,15 +30,23 @@ public class Door : MonoBehaviour
         {
             if (!key.IsPressed) return;
         }
-
         _targetPosition = _openPosition;
-        _doorTransform.DOLocalMove(_targetPosition, _speed);
+
+        MoveDoor();
     }
 
     public void Lock()
     {
         _targetPosition = _closedPosition;
-        _doorTransform.DOLocalMove(_targetPosition, _speed);
+
+        MoveDoor();
+    }
+
+    private void MoveDoor()
+    {
+        if (_moveTween.IsActive()) _moveTween?.Kill();
+        _moveTween = _doorTransform.DOLocalMove(_targetPosition, _speed);
+        _moveTween.onComplete += () => _moveTween = null;
     }
 
     private void OnDrawGizmosSelected()

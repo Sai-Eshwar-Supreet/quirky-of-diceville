@@ -1,86 +1,89 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System;
-using System.Linq;
-using Mono.Cecil.Cil;
+using System.Collections.Generic;
+using UnityEngine;
 
-[DefaultExecutionOrder(-1)]
 public class  GameDataManager : MonoBehaviour
 {
     [SerializeField] private DiceDataRegistry _diceDataRegistry;
     [SerializeField] private LevelDataRegistry _levelDataRegistry;
-    public Color DefaultColor { get; private set; }
-    public Texture2D DefaultTexture { get; private set;  }
 
-    private readonly Dictionary<int, Color> _colorCache = new();
-    private readonly Dictionary<int, Texture2D> _textureCache = new();
-    private readonly Dictionary<int, Level> _levelCache = new();
+    private readonly Dictionary<int, DiceColorData> _colorCache = new();
+    private readonly Dictionary<int, DiceValueData> _textureCache = new();
+    private readonly Dictionary<int, LevelData> _levelCache = new();
 
-    public DiceColorData[] ColorDataList => _diceDataRegistry.ColorDataList;
-    public DiceValueData[] ValueDataList => _diceDataRegistry.ValueDataList;
-    public LevelData[] LevelDataList => _levelDataRegistry.LevelDataList;
+    public IReadOnlyList<DiceColorData> ColorDataList => _diceDataRegistry.ColorDataList;
+    public IReadOnlyList<DiceValueData> ValueDataList => _diceDataRegistry.ValueDataList;
+    public IReadOnlyList<LevelData> LevelDataList => _levelDataRegistry.LevelDataList;
 
     public void Load()
     {
         _colorCache.Clear();
         _textureCache.Clear();
+        _levelCache.Clear();
 
-        DefaultColor = ColorDataList[0].Color;
         foreach (var colorData in ColorDataList)
         {
-            _colorCache.Add(colorData.ID, colorData.Color);
+            if(!_colorCache.TryAdd(colorData.ID, colorData))
+            {
+                Debug.LogError($"Duplicate color ID: {colorData.ID}");
+            }
         }
 
-        DefaultTexture = ValueDataList[0].Texture;
         foreach (var valueData in ValueDataList)
         {
-            _textureCache.Add(valueData.ID, valueData.Texture);
+            if (!_textureCache.TryAdd(valueData.ID, valueData))
+            {
+                Debug.LogError($"Duplicate value ID: {valueData.ID}");
+            }
         }
 
-        _levelCache.Clear();
         foreach(var levelData in _levelDataRegistry.LevelDataList)
         {
-            _levelCache.Add(levelData.ID, levelData.LevelPrefab);
+            if (!_levelCache.TryAdd(levelData.ID, levelData))
+            {
+                Debug.LogError($"Duplicate level ID: {levelData.ID}");
+            }
         }
     }
 
-    public Color GetColorForDice(int colorIndex)
+    public Color GetColorForDice(int colorId)
     {
-        if (_colorCache.TryGetValue(colorIndex, out var color))
+        if (_colorCache.TryGetValue(colorId, out var data))
         {
-            return color;
+            return data.Color;
 
         }
-        return DefaultColor;
+
+        throw new ArgumentException($"Invalid level id {colorId}", nameof(colorId));
     }
 
-    public Texture2D GetValueTextureForDice(int valueIndex)
+    public Texture2D GetValueTextureForDice(int valueId)
     {
-        if (_textureCache.TryGetValue(valueIndex, out var texture))
+        if (_textureCache.TryGetValue(valueId, out var data))
         {
-            return texture;
+            return data.Texture;
         }
-        return DefaultTexture;
+
+        throw new ArgumentException($"Invalid value id {valueId}", nameof(valueId));
     }
 
-    public Level GetLevelPrefab(int levelIndex)
+    public Level GetLevelPrefab(int levelId)
     {
-        if(_levelCache.TryGetValue(levelIndex, out var levelPrefab))
+        if(_levelCache.TryGetValue(levelId, out var data))
         {
-            return levelPrefab;
+            return data.LevelPrefab;
         }
 
-        return null;
+        throw new ArgumentException($"Invalid level id {levelId}", nameof(levelId));
     }
 
-    public int GetNextLevelId(int currentLevel)
+    public int GetNextLevelId(int currentLevelId)
     {
-        var keys = _levelCache.Keys.ToList();
+        if (_levelCache.TryGetValue(currentLevelId, out var data))
+        {
+            return data.NextLevelId;
+        }
 
-        var index = keys.IndexOf(currentLevel);
-
-        var nextIndex = (keys.Count + index + 1) % keys.Count;
-
-        return keys[nextIndex];
+        throw new ArgumentException( $"Invalid level id {currentLevelId}", nameof(currentLevelId));
     }
 }

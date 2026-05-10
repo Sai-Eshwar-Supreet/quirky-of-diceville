@@ -13,53 +13,55 @@ public class DiceStateManager : MonoBehaviour
     [SerializeField] private DiceType _type = DiceType.Color | DiceType.Value;
     [SerializeField] private int _startColorIndex = 0;
     [SerializeField] private int _startValueIndex = 0;
-    [SerializeField] private MeshRenderer _diceRenderer;
-    private Material _material;
+    [SerializeField] private DiceVisual _renderer;
+
+    public bool IsEnabled { get; private set; }
 
     public DiceType Type => _type;
     public int ColorIndex { get; private set;  }
     public int ValueIndex { get; private set;  }
 
-    public void Init()
+    public void Enable()
     {
-        if (_material) return;
-
-        _material = new Material(_diceRenderer.material)
-        {
-            name = $"{gameObject.name} material"
-        };
-        _diceRenderer.material = _material;
-
+        if (IsEnabled) return;
+        IsEnabled = true;
         var _gameDataManager = ServiceLocator.Get<GameDataManager>();
 
         ColorIndex = _startColorIndex;
         ValueIndex = _startValueIndex;
 
-        _material.SetColor("_BaseColor", _gameDataManager.GetColorForDice(ColorIndex));
-        _material.SetTexture("_BaseMap", _gameDataManager.GetValueTextureForDice(ValueIndex));
+        _renderer.SetColor(_gameDataManager.GetColorForDice(ColorIndex));
+        _renderer.SetTexture(_gameDataManager.GetValueTextureForDice(ValueIndex));
+    }
+
+    public bool Matches(DiceStateManager other)
+    {
+        bool isMatch = (other.ColorIndex == ColorIndex && other.ValueIndex == ValueIndex);
+        return isMatch;
     }
 
     public void SetColor(int colorIndex)
     {
-        if(!_type.HasFlag(DiceType.Color)) return;
+        if(!IsEnabled || !_type.HasFlag(DiceType.Color)) return;
 
         ColorIndex = colorIndex;
         var color = ServiceLocator.Get<GameDataManager>().GetColorForDice(ColorIndex);
-        _material.SetColor("_BaseColor", color);
+        _renderer.SetColor(color);
     }
 
     public void SetValue(int valueIndex)
     {
-        if (!_type.HasFlag(DiceType.Value)) return;
+        if (!IsEnabled || !_type.HasFlag(DiceType.Value)) return;
 
         ValueIndex = valueIndex;
         var tex2D = ServiceLocator.Get<GameDataManager>().GetValueTextureForDice(ValueIndex);
-        _material.SetTexture("_BaseMap", tex2D);
+        _renderer.SetTexture(tex2D);
     }
 
-    public void ResetDice()
+    public void Disable()
     {
-        SetColor(-1);
-        SetValue(-1);
+        if (!IsEnabled) return;
+        IsEnabled = false;
+        _renderer.ResetOverrides();
     }
 }

@@ -12,19 +12,19 @@ public class AppearanceChangeUI : MonoBehaviour
 
     public bool IsOpen => _panel.activeInHierarchy;
 
-    public void Init()
+    private void Awake()
     {
         var gameDataManager = ServiceLocator.Get<GameDataManager>();
         foreach (var colorData in gameDataManager.ColorDataList)
         {
             var toggle = Instantiate(_togglePrefab);
-            toggle.Init(null, colorData.Color, () => { OnColorSelected?.Invoke(colorData.ID); });
+            toggle.Set(null, colorData.Color, () => { OnColorSelected?.Invoke(colorData.ID); });
             _colorToggleGroup.Add(colorData.ID, toggle);
         }
         foreach (var valueData in gameDataManager.ValueDataList)
         {
             var toggle = Instantiate(_togglePrefab);
-            toggle.Init(valueData.Sprite, Color.white, () => { OnValueSelected?.Invoke(valueData.ID); });
+            toggle.Set(valueData.Sprite, Color.white, () => { OnValueSelected?.Invoke(valueData.ID); });
             _valueToggleGroup.Add(valueData.ID, toggle);
         }
 
@@ -34,15 +34,15 @@ public class AppearanceChangeUI : MonoBehaviour
     public void UpdateUnlocks()
     {
         var gameDataManager = ServiceLocator.Get<GameDataManager>();
-        var levelDataManager = ServiceLocator.Get<LevelDataManager>();
+        var levelDataQueryService = ServiceLocator.Get<ILevelDataQueryService>();
         foreach (var colorData in gameDataManager.ColorDataList)
         {
-            var isUnlocked = levelDataManager.IsColorUnlocked(colorData.ID);
+            var isUnlocked = levelDataQueryService.IsColorUnlocked(colorData.ID);
             _colorToggleGroup.SetInteractable(colorData.ID, isUnlocked);
         }
         foreach (var valueData in gameDataManager.ValueDataList)
         {
-            var isUnlocked = levelDataManager.IsValueUnlocked(valueData.ID);
+            var isUnlocked = levelDataQueryService.IsValueUnlocked(valueData.ID);
             _valueToggleGroup.SetInteractable(valueData.ID, isUnlocked);
         }
     }

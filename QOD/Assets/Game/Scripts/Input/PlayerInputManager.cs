@@ -7,7 +7,6 @@ public class PlayerInputManager
     private PlayerInput.PlayerActions _playerActions;
 
     public event Action<Vector2> OnMove;
-    public event Action<bool> OnHover;
     public event Action<bool> OnAppearanceMenuInput;
     public event Action<int> OnPlayerSwitch;
 
@@ -38,9 +37,6 @@ public class PlayerInputManager
         _playerActions.Move.performed += MoveEventHandler;
         _playerActions.Move.canceled += MoveEventHandler;
 
-        _playerActions.Hover.performed += HoverEventHandler;
-        _playerActions.Hover.canceled += HoverEventHandler;
-
         _playerActions.ChangeAppearance.performed += OnAppreanceMenuEventHandler;
         _playerActions.ChangeAppearance.canceled += OnAppreanceMenuEventHandler;
 
@@ -51,9 +47,6 @@ public class PlayerInputManager
     {
         _playerActions.Move.performed -= MoveEventHandler;
         _playerActions.Move.canceled -= MoveEventHandler;
-
-        _playerActions.Hover.performed -= HoverEventHandler;
-        _playerActions.Hover.canceled -= HoverEventHandler;
 
         _playerActions.ChangeAppearance.performed -= OnAppreanceMenuEventHandler;
         _playerActions.ChangeAppearance.canceled -= OnAppreanceMenuEventHandler;
@@ -66,10 +59,6 @@ public class PlayerInputManager
     private void MoveEventHandler(InputAction.CallbackContext context)
     {
         OnMove?.Invoke(context.ReadValue<Vector2>());
-    }
-    private void HoverEventHandler(InputAction.CallbackContext context)
-    {
-        OnHover?.Invoke(context.ReadValueAsButton());
     }
     private void OnAppreanceMenuEventHandler(InputAction.CallbackContext context)
     {

@@ -16,15 +16,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Hover",
-                    "type": "Button",
-                    "id": "8b76284b-107e-4aae-91bc-d1a79ac7feae",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Change Appearance",
                     "type": "Button",
                     "id": "f80c83fa-e8ca-4576-a2ed-2a3bd6e8adb6",
@@ -98,17 +89,6 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "c03e7758-6eaf-41c9-9c25-ee631fdc35bc",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Hover",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

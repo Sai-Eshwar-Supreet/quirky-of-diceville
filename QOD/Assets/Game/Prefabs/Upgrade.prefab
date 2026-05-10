@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6800291469227164488}
   - component: {fileID: 4185098722946045732}
   - component: {fileID: 5670428075593096983}
+  - component: {fileID: 7693910046405683486}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -140,6 +141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceStateManager
   _type: 1
-  _defaultColorIndex: 1
-  _defaultValueIndex: 0
-  _diceRenderer: {fileID: 5671322397429404456}
+  _startColorIndex: 0
+  _startValueIndex: 0
+  _renderer: {fileID: 7693910046405683486}
+--- !u!114 &7693910046405683486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043502823131934048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f3b368e7f028541aeb5e84ff81a1e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer

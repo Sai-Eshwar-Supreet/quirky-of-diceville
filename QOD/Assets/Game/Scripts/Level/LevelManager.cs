@@ -6,21 +6,22 @@ using UnityEngine.UI;
 public class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] private Button _exitToMenuButton;
-    [SerializeField] private LevelDataManager _levelDataManager;
     [SerializeField] private LevelSelectionUI _levelSelectionUI;
 
+    private LevelDataManager _levelDataManager;
     private int _currentLevel = -1;
     private Level _levelObject;
 
     protected override void Awake()
     {
         base.Awake();
-        _levelDataManager.Init();
+        _levelDataManager = new LevelDataManager();
     }
 
     private void OnEnable()
     {
-        ServiceLocator.Register(_levelDataManager);
+        ServiceLocator.Register<ILevelDataQueryService>(_levelDataManager);
+        ServiceLocator.Register<ILevelDataUpdateService>(_levelDataManager);
 
         _levelSelectionUI.OnLevelPlayRequested += LoadLevel;
         _exitToMenuButton.onClick.AddListener(ExitLevel);
@@ -34,7 +35,8 @@ public class LevelManager : MonoSingleton<LevelManager>
         _levelSelectionUI.OnLevelPlayRequested -= LoadLevel;
         _exitToMenuButton.onClick.RemoveListener(ExitLevel);
 
-        ServiceLocator.Unregister<LevelDataManager>();
+        ServiceLocator.Unregister<ILevelDataQueryService>();
+        ServiceLocator.Unregister<ILevelDataUpdateService>();
     }
 
     public void LoadLevel(int levelId)
@@ -43,7 +45,7 @@ public class LevelManager : MonoSingleton<LevelManager>
 
         UnloadLevel();
 
-        _levelDataManager.Init();
+        _levelDataManager.Reset();
         _currentLevel = levelId;
         _levelObject = Instantiate(ServiceLocator.Get<GameDataManager>().GetLevelPrefab(levelId));
         ServiceLocator.Register(_levelObject);

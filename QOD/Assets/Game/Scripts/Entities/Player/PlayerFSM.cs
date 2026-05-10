@@ -1,19 +1,16 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 
 public class PlayerFSM : BaseStateMachine
 {
     [SerializeField] private Vector2 _moveOffset = Vector2.one;
     [SerializeField] private Ease _moveEase = Ease.InOutSine;
-    [SerializeField] private float _hoverOffset = 1f;
     [SerializeField] private float _moveDuration = 0.5f;
     [SerializeField] private LayerMask _platformMask;
     [SerializeField] private DiceStateManager _diceStateManager;
 
     public bool IsMovePressed => MoveInput != Vector2.zero;
     public Vector2 MoveInput { get; private set; }
-    public bool IsHoverPressed { get; private set; } = false;
 
     public bool IsMoving { get; private set; } = false;
 
@@ -21,25 +18,23 @@ public class PlayerFSM : BaseStateMachine
     public int ColorId => _diceStateManager.ColorIndex;
     public int ValueId => _diceStateManager.ValueIndex;
 
-    private float _groundedY = 0;
-    private float HoveredY => _groundedY + _hoverOffset;
+    private Tween _moveTween;
 
     protected override void Awake()
     {
         base.Awake();
 
-        _groundedY = transform.position.y;
-        _diceStateManager.Init();
+        _diceStateManager.Enable();
+    }
+
+    private void OnDisable()
+    {
+        if (_moveTween.IsActive()) _moveTween?.Kill();
     }
 
     public void SupplyMoveInput(Vector2 vector)
     {
         MoveInput = vector;
-    }
-
-    public void SupplyHoverInput(bool hoverPressed)
-    {
-        IsHoverPressed = hoverPressed;
     }
 
     public void SupplyActivationInput(bool isActive)
@@ -61,7 +56,6 @@ public class PlayerFSM : BaseStateMachine
     {
         StateFactory.AddState(new IdleState(this));
         StateFactory.AddState(new MoveState(this));
-        StateFactory.AddState(new HoverState(this));
         StateFactory.AddState(new InactiveState(this));
 
         CurrentState = StateFactory.GetState<IdleState>();
@@ -75,17 +69,9 @@ public class PlayerFSM : BaseStateMachine
         if (CheckGroundAvailability(targetPos) && CheckSpaceAvailability(targetPos))
         {
             IsMoving = true;
-            transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase).onComplete += () => IsMoving = false;
+            _moveTween = transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase);
+            _moveTween.onComplete += () => IsMoving = false;
         }
-    }
-
-    public void Hover()
-    {
-        var y = ( IsHoverPressed ? HoveredY : _groundedY);
-
-        transform.DOKill();
-        IsMoving = true;
-        transform.DOMoveY(y, _moveDuration).SetEase(_moveEase).onComplete += () => IsMoving = false;
     }
 
     private bool CheckGroundAvailability(Vector3 requestedLocation, float maxDistance = 1f)

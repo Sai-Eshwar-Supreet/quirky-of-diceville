@@ -18,7 +18,7 @@ public class Key : MonoBehaviour
 
     private void Awake()
     {
-        _diceStateManager.Init();
+        _diceStateManager.Enable();
     }
 
     private void OnTriggerEnter(Collider other) => Interact(other);
@@ -30,14 +30,12 @@ public class Key : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
-            var playerColor = playerDiceState.ColorIndex;
-            var playerValue = playerDiceState.ValueIndex;
 
-            IsPressed = (playerColor == _diceStateManager.ColorIndex) && (playerValue == _diceStateManager.ValueIndex);
+            IsPressed = _diceStateManager.Matches(playerDiceState);
 
             if (IsPressed && _keyType == KeyType.OneTime)
             {
-                _diceStateManager.ResetDice();
+                _diceStateManager.Disable();
                 _triggerCollider.enabled = false;
             }
 

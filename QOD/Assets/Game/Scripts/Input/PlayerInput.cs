@@ -90,30 +90,21 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""Player"",
-            ""_id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
+            ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""_id"": ""80b09814-c103-4973-a152-11943069fe94"",
+                    ""id"": ""80b09814-c103-4973-a152-11943069fe94"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Hover"",
-                    ""type"": ""Button"",
-                    ""_id"": ""8b76284b-107e-4aae-91bc-d1a79ac7feae"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Change Appearance"",
                     ""type"": ""Button"",
-                    ""_id"": ""f80c83fa-e8ca-4576-a2ed-2a3bd6e8adb6"",
+                    ""id"": ""f80c83fa-e8ca-4576-a2ed-2a3bd6e8adb6"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -122,7 +113,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Switch"",
                     ""type"": ""Value"",
-                    ""_id"": ""20d5ff5e-9707-43f3-a1a7-0d29a0bbebf9"",
+                    ""id"": ""20d5ff5e-9707-43f3-a1a7-0d29a0bbebf9"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -132,7 +123,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""WASD"",
-                    ""_id"": ""7064c722-17f0-4099-8496-662f97d22417"",
+                    ""id"": ""7064c722-17f0-4099-8496-662f97d22417"",
                     ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -143,7 +134,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""_id"": ""df2814cd-e08f-4bd1-a5ec-7a30266fc9d8"",
+                    ""id"": ""df2814cd-e08f-4bd1-a5ec-7a30266fc9d8"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -154,7 +145,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""_id"": ""1fd35f95-284e-4511-be12-78109d6df004"",
+                    ""id"": ""1fd35f95-284e-4511-be12-78109d6df004"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -165,7 +156,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""_id"": ""2c052784-dbe2-4b7e-a739-3fedb9640429"",
+                    ""id"": ""2c052784-dbe2-4b7e-a739-3fedb9640429"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -176,7 +167,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""_id"": ""9ea45144-0da5-4ea8-90ae-80da5f6a633b"",
+                    ""id"": ""9ea45144-0da5-4ea8-90ae-80da5f6a633b"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -187,18 +178,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""_id"": ""c03e7758-6eaf-41c9-9c25-ee631fdc35bc"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Hover"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""_id"": ""9e625773-e2ce-4111-90de-f9f59e2163b4"",
+                    ""id"": ""9e625773-e2ce-4111-90de-f9f59e2163b4"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -209,7 +189,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""QE"",
-                    ""_id"": ""1926ebe0-d7ed-4809-b124-c95063a27a64"",
+                    ""id"": ""1926ebe0-d7ed-4809-b124-c95063a27a64"",
                     ""path"": ""1DAxis(whichSideWins=1)"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -220,7 +200,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""negative"",
-                    ""_id"": ""f722c5de-de02-4a40-8bf8-c6590a630316"",
+                    ""id"": ""f722c5de-de02-4a40-8bf8-c6590a630316"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -231,7 +211,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""positive"",
-                    ""_id"": ""f9010a36-6dda-4af5-a5dd-f4c6d30ccc5d"",
+                    ""id"": ""f9010a36-6dda-4af5-a5dd-f4c6d30ccc5d"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -309,7 +289,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Hover = m_Player.FindAction("Hover", throwIfNotFound: true);
         m_Player_ChangeAppearance = m_Player.FindAction("Change Appearance", throwIfNotFound: true);
         m_Player_Switch = m_Player.FindAction("Switch", throwIfNotFound: true);
     }
@@ -393,7 +372,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Hover;
     private readonly InputAction m_Player_ChangeAppearance;
     private readonly InputAction m_Player_Switch;
     /// <summary>
@@ -411,10 +389,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Hover".
-        /// </summary>
-        public InputAction @Hover => m_Wrapper.m_Player_Hover;
         /// <summary>
         /// Provides access to the underlying input action "Player/ChangeAppearance".
         /// </summary>
@@ -452,9 +426,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Hover.started += instance.OnHover;
-            @Hover.performed += instance.OnHover;
-            @Hover.canceled += instance.OnHover;
             @ChangeAppearance.started += instance.OnChangeAppearance;
             @ChangeAppearance.performed += instance.OnChangeAppearance;
             @ChangeAppearance.canceled += instance.OnChangeAppearance;
@@ -475,9 +446,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Hover.started -= instance.OnHover;
-            @Hover.performed -= instance.OnHover;
-            @Hover.canceled -= instance.OnHover;
             @ChangeAppearance.started -= instance.OnChangeAppearance;
             @ChangeAppearance.performed -= instance.OnChangeAppearance;
             @ChangeAppearance.canceled -= instance.OnChangeAppearance;
@@ -596,13 +564,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Hover" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHover(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Change Appearance" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

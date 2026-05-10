@@ -26,7 +26,6 @@ public class ExitsManager : MonoBehaviour
         {
             if (!exit.IsAprropriateMatch) return;
         }
-
         LevelManager.Instance.GoToNextLevel();
     }
 }

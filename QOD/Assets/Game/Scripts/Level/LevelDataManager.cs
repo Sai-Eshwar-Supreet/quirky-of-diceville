@@ -1,19 +1,22 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class LevelDataManager : MonoBehaviour
+public class LevelDataManager : ILevelDataQueryService, ILevelDataUpdateService
 {
     public event Action OnAppearanceUnlocked;
     public event Action<int> OnColorUnlocked;
     public event Action<int> OnValueUnlocked;
 
-    private readonly HashSet<int> _unlockedColors = new();
-    private readonly HashSet<int> _unlockedValues = new();
-    public bool IsColorUnlocked(int id) => _unlockedColors.Contains(id);
-    public bool IsValueUnlocked(int id) => _unlockedValues.Contains(id);
+    private readonly HashSet<int> _unlockedColors;
+    private readonly HashSet<int> _unlockedValues;
 
-    public void Init()
+    public LevelDataManager()
+    {
+        _unlockedColors = new ();
+        _unlockedValues = new ();
+    }
+
+    public void Reset()
     {
         _unlockedColors.Clear();
         _unlockedValues.Clear();
@@ -22,19 +25,22 @@ public class LevelDataManager : MonoBehaviour
         _unlockedValues.Add(0); // Default value
     }
 
-    public void UnlockValue(int id)
+    public bool IsColorUnlocked(int colorId) => _unlockedColors.Contains(colorId);
+    public bool IsValueUnlocked(int valueId) => _unlockedValues.Contains(valueId);
+
+    public void UnlockValue(int valueId)
     {
-        if (_unlockedValues.Contains(id)) return;
-        _unlockedValues.Add(id);
-        OnValueUnlocked?.Invoke(id);
+        if (_unlockedValues.Contains(valueId)) return;
+        _unlockedValues.Add(valueId);
+        OnValueUnlocked?.Invoke(valueId);
         OnAppearanceUnlocked?.Invoke();
     }
 
-    public void UnlockColor(int id)
+    public void UnlockColor(int colorId)
     {
-        if (_unlockedColors.Contains(id)) return;
-        _unlockedColors.Add(id);
-        OnColorUnlocked?.Invoke(id);
+        if (_unlockedColors.Contains(colorId)) return;
+        _unlockedColors.Add(colorId);
+        OnColorUnlocked?.Invoke(colorId);
         OnAppearanceUnlocked?.Invoke();
     }
 }

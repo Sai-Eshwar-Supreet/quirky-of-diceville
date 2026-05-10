@@ -11,30 +11,27 @@ public class PlayerController : MonoBehaviour
 
     private int _currentPlayerIndex;
 
-    protected void Awake()
+    private void Awake()
     {
-        if(_players.Length == 0) throw new System.Exception("No players assigned to PlayerController!");
         _playerInputManager.Init();
+        if(_players.Length == 0) throw new System.Exception("No players assigned to PlayerController!");
         _currentPlayerIndex = 0;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
         _camera.Follow = _players[_currentPlayerIndex].transform;
-
-        _appearanceChangeUI.Init();
     }
 
     private void OnEnable()
     {
         _playerInputManager.SetCursorState(true);
-        var levelDataManager = ServiceLocator.Get<LevelDataManager>();
+        var levelDataQueryService = ServiceLocator.Get<ILevelDataQueryService>();
 
         _playerInputManager.Enable();
 
         _playerInputManager.OnMove += OnMove;
-        _playerInputManager.OnHover += OnHover;
         _playerInputManager.OnPlayerSwitch += OnSwitch;
         _playerInputManager.OnAppearanceMenuInput += OnAppearanceMenuUsed;
         
-        levelDataManager.OnAppearanceUnlocked += _appearanceChangeUI.UpdateUnlocks;
+        levelDataQueryService.OnAppearanceUnlocked += _appearanceChangeUI.UpdateUnlocks;
 
         _appearanceChangeUI.OnColorSelected += OnColorSelected;
         _appearanceChangeUI.OnValueSelected += OnValueSelected;
@@ -42,15 +39,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        var levelDataManager = ServiceLocator.Get<LevelDataManager>();
+        var levelDataQueryService = ServiceLocator.Get<ILevelDataQueryService>();
         
         _playerInputManager.OnMove -= OnMove;
-        _playerInputManager.OnHover -= OnHover;
         _playerInputManager.OnPlayerSwitch -= OnSwitch;
         _playerInputManager.OnAppearanceMenuInput -= OnAppearanceMenuUsed;
 
 
-        if(levelDataManager != null) levelDataManager.OnAppearanceUnlocked -= _appearanceChangeUI.UpdateUnlocks;
+        if(levelDataQueryService != null) levelDataQueryService.OnAppearanceUnlocked -= _appearanceChangeUI.UpdateUnlocks;
 
         _appearanceChangeUI.OnColorSelected -= OnColorSelected;
         _appearanceChangeUI.OnValueSelected -= OnValueSelected;
@@ -87,28 +83,22 @@ public class PlayerController : MonoBehaviour
     private void OnSwitch(int direction)
     {
         if (_appearanceChangeUI.IsOpen) return;
-        ResetCurrentPlayer();
+        DeactivateCurrentPlayer();
         int length = _players.Length;
         _currentPlayerIndex = (length + _currentPlayerIndex + direction) % length;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
         _camera.Follow = _players[_currentPlayerIndex].transform;
     }
 
-    private void ResetCurrentPlayer()
+    private void DeactivateCurrentPlayer()
     {
         var previousPlayer = _players[_currentPlayerIndex];
         previousPlayer.SupplyMoveInput(Vector2.zero);
-        previousPlayer.SupplyHoverInput(false);
         previousPlayer.SupplyActivationInput(false);
     }
 
     private void OnMove(Vector2 vector)
     {
         _players[_currentPlayerIndex].SupplyMoveInput(vector);
-    }
-
-    private void OnHover(bool hoverPressed)
-    {
-        _players[_currentPlayerIndex].SupplyHoverInput(hoverPressed);
     }
 }
