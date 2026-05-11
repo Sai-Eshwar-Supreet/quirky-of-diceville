@@ -111,6 +111,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a9361d0b02e9677458c83687e393133f, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d3234de2026aa9347aea371d098339a9, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2619086233303812490, guid: 453df1bf170ea464fa74e5fd63702786, type: 3}
     - target: {fileID: 919132149155446097, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}
       propertyPath: m_Name
       value: Door
@@ -174,8 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorVisual
   _meshRenderer: {fileID: 2923768104932882906}
-  _lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _unlockedColor: {r: 1, g: 1, b: 1, a: 1}
+  _targetMaterialIndex: 1
+  _lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  _unlockedColor: {r: 0, g: 11.984314, b: 0.12039664, a: 1}
 --- !u!4 &4096133010846106293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 752ad7df12ee7af4f8bf3d18cbf7f586, type: 3}

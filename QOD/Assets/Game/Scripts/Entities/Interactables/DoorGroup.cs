@@ -7,17 +7,18 @@ public class DoorGroup : MonoBehaviour
     [SerializeField] private Transform _doorTransform;
     [SerializeField] private Vector3 _openPosition;
     [SerializeField] private Vector3 _closedPosition;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _openSpeed;
+    [SerializeField] private float _closeSpeed;
+    [SerializeField] private Ease _openEase = Ease.InOutSine;
+    [SerializeField] private Ease _closeEase = Ease.InOutSine;
 
     private readonly HashSet<Door> _doorList = new();
 
-    private Vector3 _targetPosition;
     private Tween _moveTween;
 
     private void Awake()
     {
-        _targetPosition = _closedPosition;
-        _doorTransform.localPosition = _targetPosition;
+        _doorTransform.localPosition = _closedPosition;
     }
     private void OnDestroy()
     {
@@ -48,15 +49,17 @@ public class DoorGroup : MonoBehaviour
 
     private void UpdateState()
     {
-        _targetPosition = IsUnlocked() ? _openPosition : _closedPosition;
-
-        MoveDoor();
+        var isUnlocked = IsUnlocked();
+        var targetPosition =  isUnlocked ? _openPosition : _closedPosition;
+        var speed = isUnlocked ? _openSpeed : _closeSpeed;
+        var ease = isUnlocked ? _openEase : _closeEase;
+        MoveDoor(targetPosition, speed, ease);
     }
 
-    private void MoveDoor()
+    private void MoveDoor(Vector3 position, float speed, Ease ease)
     {
         if (_moveTween.IsActive()) _moveTween?.Kill();
-        _moveTween = _doorTransform.DOLocalMove(_targetPosition, _speed);
+        _moveTween = _doorTransform.DOLocalMove(position, speed).SetEase(ease);
         _moveTween.onComplete += () => _moveTween = null;
     }
 

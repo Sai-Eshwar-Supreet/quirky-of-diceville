@@ -4,8 +4,9 @@ using UnityEngine;
 public class DoorVisual : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private Color _lockedColor = Color.grey;
-    [SerializeField] private Color _unlockedColor = Color.white;
+    [SerializeField] private int _targetMaterialIndex = 0;
+    [SerializeField, ColorUsage(true, true)] private Color _lockedColor = Color.grey;
+    [SerializeField, ColorUsage(true, true)] private Color _unlockedColor = Color.white;
 
     private MaterialPropertyBlock _mpb;
 
@@ -17,7 +18,7 @@ public class DoorVisual : MonoBehaviour
             {
                 _mpb = new();
                 if( _meshRenderer == null ) _meshRenderer = GetComponent<MeshRenderer>();
-                _meshRenderer.GetPropertyBlock(_mpb);
+                _meshRenderer.GetPropertyBlock(_mpb, _targetMaterialIndex);
             }
             return _mpb;
         }
@@ -27,7 +28,7 @@ public class DoorVisual : MonoBehaviour
     {
         var targetColor = unlocked ? _unlockedColor : _lockedColor;
 
-        MPB.SetColor("_BaseColor",  targetColor);
-        _meshRenderer.SetPropertyBlock(MPB);
+        MPB.SetColor("_EmissionColor",  targetColor);
+        _meshRenderer.SetPropertyBlock(MPB, _targetMaterialIndex);
     }
 }

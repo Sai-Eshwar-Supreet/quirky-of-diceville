@@ -8,10 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5140871803440131436, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5546940888850326318, guid: f2dc77166937dd14183d9d5cc6ff6c86, type: 3}
     - target: {fileID: 5644380172393019569, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
       propertyPath: m_Name
       value: Platform Unit - Key
       objectReference: {fileID: 0}
+    - target: {fileID: 6970724375247853990, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970724375247853990, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c420fc9642d3eaa499e8654bfc83b856, type: 2}
+    - target: {fileID: 6970724375247853990, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0178d3bfcb4c134458f5313a03ac60f5, type: 2}
     - target: {fileID: 8340645861045182326, guid: 374cbd9a5f5e30b48ad912d0fc41d5c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -144,3 +160,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f3b368e7f028541aeb5e84ff81a1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer
+  _meshRenderer: {fileID: 0}
+  _targetMaterialIndex: 1
