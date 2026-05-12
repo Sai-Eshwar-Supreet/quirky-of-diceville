@@ -26,6 +26,8 @@ public class DiceVisual : MonoBehaviour
     public void SetColor(Color color)
     {
         MPB.SetColor("_BaseColor",  color);
+        MPB.SetColor("_EmissionColor", color * 6);
+
         _meshRenderer.SetPropertyBlock(MPB, _targetMaterialIndex);
     }
 

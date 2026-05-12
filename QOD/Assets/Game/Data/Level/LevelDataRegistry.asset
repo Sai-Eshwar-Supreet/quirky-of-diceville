@@ -19,5 +19,5 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: c65236bbba696994f8db2dc45cb4db50, type: 3}
   - _id: 1
     _nextLevelId: 0
-    _levelPrefab: {fileID: 7863739998407036830, guid: 2261b81cf0bdaef4ea1b53ff1a36dd51, type: 3}
+    _levelPrefab: {fileID: 7863739998407036830, guid: c89ce0d966c4dbf4c9cb6326c328e8ff, type: 3}
     _sprite: {fileID: 21300000, guid: 559f2ea0798434742bd26ea15ec08461, type: 3}
