@@ -5,6 +5,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFSM[] _players;
+    [SerializeField] private PlayerUI _playerUI;
     [SerializeField] private CinemachineCamera _camera;
     [SerializeField] private AppearanceChangeUI _appearanceChangeUI;
     private readonly PlayerInputManager _playerInputManager = new();
@@ -15,9 +16,18 @@ public class PlayerController : MonoBehaviour
     {
         _playerInputManager.Init();
         if(_players.Length == 0) throw new System.Exception("No players assigned to PlayerController!");
+
         _currentPlayerIndex = 0;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
         _camera.Follow = _players[_currentPlayerIndex].transform;
+
+
+        for (int i = 0; i < _players.Length; i++)
+        {
+            _playerUI.AddPlayer(i);
+        }
+
+        _playerUI.SwitchTo(_currentPlayerIndex);
     }
 
     private void OnEnable()
@@ -88,6 +98,8 @@ public class PlayerController : MonoBehaviour
         _currentPlayerIndex = (length + _currentPlayerIndex + direction) % length;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
         _camera.Follow = _players[_currentPlayerIndex].transform;
+
+        _playerUI.SwitchTo(_currentPlayerIndex);
     }
 
     private void DeactivateCurrentPlayer()
