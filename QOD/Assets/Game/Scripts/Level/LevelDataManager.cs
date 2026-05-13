@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 public class LevelDataManager : ILevelDataQueryService, ILevelDataUpdateService
 {
@@ -16,13 +18,20 @@ public class LevelDataManager : ILevelDataQueryService, ILevelDataUpdateService
         _unlockedValues = new ();
     }
 
-    public void Reset()
+    public void Reset(IReadOnlyList<int> unlockedColors, IReadOnlyList<int> unlockedValues)
     {
         _unlockedColors.Clear();
         _unlockedValues.Clear();
 
-        _unlockedColors.Add(0); // Default color
-        _unlockedValues.Add(0); // Default value
+        foreach (int colorId in unlockedColors)
+        {
+            _unlockedColors.Add(colorId);
+        }
+
+        foreach (int valueId in unlockedValues)
+        {
+            _unlockedValues.Add(valueId);
+        }
     }
 
     public bool IsColorUnlocked(int colorId) => _unlockedColors.Contains(colorId);

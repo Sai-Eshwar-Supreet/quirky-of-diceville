@@ -45,9 +45,11 @@ public class LevelManager : MonoSingleton<LevelManager>
 
         UnloadLevel();
 
-        _levelDataManager.Reset();
+        var levelData = ServiceLocator.Get<GameDataManager>().GetLevelData(levelId);
+
+        _levelDataManager.Reset(levelData.DefaultUnlockedColors, levelData.DefaultUnlockedValues);  
         _currentLevel = levelId;
-        _levelObject = Instantiate(ServiceLocator.Get<GameDataManager>().GetLevelPrefab(levelId));
+        _levelObject = Instantiate(levelData.LevelPrefab);
         ServiceLocator.Register(_levelObject);
         _levelSelectionUI.Close();
     }

@@ -67,11 +67,11 @@ public class  GameDataManager : MonoBehaviour
         throw new ArgumentException($"Invalid value id {valueId}", nameof(valueId));
     }
 
-    public Level GetLevelPrefab(int levelId)
+    public LevelData GetLevelData(int levelId)
     {
         if(_levelCache.TryGetValue(levelId, out var data))
         {
-            return data.LevelPrefab;
+            return data;
         }
 
         throw new ArgumentException($"Invalid level id {levelId}", nameof(levelId));

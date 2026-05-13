@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca19202ae8ce0641bc5e4f76cdd5b6a, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  _id: 1
+  _nextLevel: {fileID: 11400000, guid: fb54f5ecbf6a48842af191b7c90b5a3f, type: 2}
+  _levelPrefab: {fileID: 7863739998407036830, guid: c89ce0d966c4dbf4c9cb6326c328e8ff, type: 3}
+  _sprite: {fileID: 21300000, guid: 559f2ea0798434742bd26ea15ec08461, type: 3}
+  _defaultUnlockedColors:
+  - {fileID: 11400000, guid: ff84215071629d64a902ac969f4797f4, type: 2}
+  _defaultUnlockedValues:
+  - {fileID: 11400000, guid: 2698d9d209558d540946aa64b8379397, type: 2}

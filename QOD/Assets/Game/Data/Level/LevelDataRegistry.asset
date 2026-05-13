@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: LevelDataRegistry
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataRegistry
   _levelData:
-  - _id: 0
-    _nextLevelId: 1
-    _levelPrefab: {fileID: 7863739998407036830, guid: 761bf39d905ded649be2d01679a5a18d, type: 3}
-    _sprite: {fileID: 21300000, guid: c65236bbba696994f8db2dc45cb4db50, type: 3}
-  - _id: 1
-    _nextLevelId: 0
-    _levelPrefab: {fileID: 7863739998407036830, guid: c89ce0d966c4dbf4c9cb6326c328e8ff, type: 3}
-    _sprite: {fileID: 21300000, guid: 559f2ea0798434742bd26ea15ec08461, type: 3}
+  - {fileID: 11400000, guid: b7e520d28000f20489cfdfc63d179fcf, type: 2}
+  - {fileID: 11400000, guid: f94ef8e3a38c4564cafdf45e198a4845, type: 2}
+  - {fileID: 11400000, guid: fb54f5ecbf6a48842af191b7c90b5a3f, type: 2}
