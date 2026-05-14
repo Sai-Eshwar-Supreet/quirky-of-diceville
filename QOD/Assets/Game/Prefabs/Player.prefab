@@ -105,6 +105,7 @@ MonoBehaviour:
     m_Bits: 192
   _diceStateManager: {fileID: 8951878891988302556}
   _playerAnimator: {fileID: 1056675310915732050}
+  _playerPointer: {fileID: 0}
 --- !u!114 &8951878891988302556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +166,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2327279969142611617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiceRenderer
   _meshRenderer: {fileID: 0}
+  _targetMaterialIndex: 0
 --- !u!95 &1873227772281303632
 Animator:
   serializedVersion: 7

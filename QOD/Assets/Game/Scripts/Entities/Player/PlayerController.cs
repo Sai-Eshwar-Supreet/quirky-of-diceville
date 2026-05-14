@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFSM[] _players;
     [SerializeField] private PlayerUI _playerUI;
-    [SerializeField] private CinemachineCamera _camera;
+    [SerializeField] private CameraController _cameraController;
     [SerializeField] private AppearanceChangeUI _appearanceChangeUI;
     private readonly PlayerInputManager _playerInputManager = new();
 
@@ -19,13 +19,10 @@ public class PlayerController : MonoBehaviour
 
         _currentPlayerIndex = 0;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
-        _camera.Follow = _players[_currentPlayerIndex].transform;
 
+        _cameraController.MoveImmediateTo(_players[_currentPlayerIndex].transform);
 
-        for (int i = 0; i < _players.Length; i++)
-        {
-            _playerUI.AddPlayer(i);
-        }
+        _playerUI.AddPlayers(_players.Length);
 
         _playerUI.SwitchTo(_currentPlayerIndex);
     }
@@ -97,7 +94,8 @@ public class PlayerController : MonoBehaviour
         int length = _players.Length;
         _currentPlayerIndex = (length + _currentPlayerIndex + direction) % length;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
-        _camera.Follow = _players[_currentPlayerIndex].transform;
+
+        _cameraController.MoveTo(_players[_currentPlayerIndex].transform);
 
         _playerUI.SwitchTo(_currentPlayerIndex);
     }

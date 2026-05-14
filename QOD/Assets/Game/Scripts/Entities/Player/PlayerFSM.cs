@@ -66,14 +66,36 @@ public class PlayerFSM : BaseStateMachine
     public void Move()
     {
         if (IsMoving || !IsMovePressed) return;
-        var targetPos = transform.position + new Vector3(MoveInput.x * _moveOffset.x, 0, MoveInput.y * _moveOffset.y);
+
+        var targetPos = transform.position + GetMove();
 
         if (CheckGroundAvailability(targetPos) && CheckSpaceAvailability(targetPos))
         {
             IsMoving = true;
+            PlayerAnimator.SetMove(MoveInput);
             _moveTween = transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase);
-            _moveTween.onComplete += () => IsMoving = false;
+            _moveTween.onComplete += OnMoveComplete;
         }
+    }
+
+    private void OnMoveComplete()
+    {
+        PlayerAnimator.SetMove(MoveInput);
+        IsMoving = false;
+    }
+
+    private Vector3 GetMove()
+    {
+        var forward = transform.forward;
+        var right = transform.right;
+        forward.y = right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        var move = _moveOffset.x * MoveInput.x * right + _moveOffset.y * MoveInput.y * forward;
+
+        return move;
     }
 
     private bool CheckGroundAvailability(Vector3 requestedLocation, float maxDistance = 1f)

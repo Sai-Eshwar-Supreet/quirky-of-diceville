@@ -14,7 +14,6 @@ public class MoveState : BaseState<PlayerFSM>
     public override void UpdateState()
     {
         Context.Move();
-        Context.PlayerAnimator.SetMove(Context.MoveInput);
         CheckSwitchStates();
     }
 
