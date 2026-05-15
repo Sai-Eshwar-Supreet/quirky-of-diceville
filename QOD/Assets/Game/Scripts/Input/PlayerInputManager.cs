@@ -10,7 +10,6 @@ public class PlayerInputManager
     public event Action<bool> OnAppearanceMenuInput;
     public event Action<int> OnPlayerSwitch;
 
-
     public void Init()
     {
         _playerActions = new PlayerInput().Player;
@@ -18,16 +17,8 @@ public class PlayerInputManager
 
     public void SetCursorState(bool isLocked)
     {
-        if (isLocked)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        if (isLocked) CursorHandler.Lock();
+        else CursorHandler.Unlock();
     }
 
     public void Enable()
@@ -58,7 +49,10 @@ public class PlayerInputManager
 
     private void MoveEventHandler(InputAction.CallbackContext context)
     {
-        OnMove?.Invoke(context.ReadValue<Vector2>());
+        var move = context.ReadValue<Vector2>();
+        if (move.x != 0 && move.y != 0) move.x = 0;
+
+        OnMove?.Invoke(move);
     }
     private void OnAppreanceMenuEventHandler(InputAction.CallbackContext context)
     {

@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
 
         _playerInputManager.Disable();
         _playerInputManager.SetCursorState(false);
+
+        OnMove(Vector2.zero);
     }
 
     private void OnAppearanceMenuUsed(bool active)

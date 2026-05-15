@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -43,7 +44,10 @@ public class LevelManager : MonoSingleton<LevelManager>
     {
         if (_currentLevel == levelId) return;
 
+        // switch on loading canvas
         UnloadLevel();
+
+        //fake load the level
 
         var levelData = ServiceLocator.Get<GameDataManager>().GetLevelData(levelId);
 
@@ -64,11 +68,17 @@ public class LevelManager : MonoSingleton<LevelManager>
         }
     }
 
-    public void GoToNextLevel()
+    public async Task GoToNextLevel()
     {
+        if (_levelObject != null) _levelObject.Pause(true);
+
         var gameDataManager = ServiceLocator.Get<GameDataManager>();
 
         var nextLevelId = gameDataManager.GetNextLevelId(_currentLevel);
+
+        await Task.Delay(500); // delay
+
+        // show level completion ui for x duration
 
         LoadLevel(nextLevelId);
     }

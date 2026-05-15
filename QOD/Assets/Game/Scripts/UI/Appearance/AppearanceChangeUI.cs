@@ -3,6 +3,7 @@ using UnityEngine;
 public class AppearanceChangeUI : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
+    [SerializeField] private GameObject _info;
     [SerializeField] private AppearanceChangeToggleGroup _colorToggleGroup;
     [SerializeField] private AppearanceChangeToggleGroup _valueToggleGroup;
     [SerializeField] private AppearanceChangeToggle _togglePrefab;
@@ -49,6 +50,7 @@ public class AppearanceChangeUI : MonoBehaviour
 
     public void Open(int activeColorIndex, int activeValueIndex)
     {
+        _info.SetActive(false);
         _panel.SetActive(true);
         _colorToggleGroup.Select(activeColorIndex);
         _valueToggleGroup.Select(activeValueIndex);
@@ -56,6 +58,7 @@ public class AppearanceChangeUI : MonoBehaviour
 
     public void Close()
     {
+        _info.SetActive(true);
         _panel.SetActive(false);
     }
 }
