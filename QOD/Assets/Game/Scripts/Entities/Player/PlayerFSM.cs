@@ -71,7 +71,7 @@ public class PlayerFSM : BaseStateMachine
 
         if (CheckGroundAvailability(targetPos) && CheckSpaceAvailability(targetPos))
         {
-            IsMoving = true;
+            SetIsMoving(true);
             PlayerAnimator.SetMove(MoveInput);
             _moveTween = transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase);
             _moveTween.onComplete += OnMoveComplete;
@@ -81,7 +81,13 @@ public class PlayerFSM : BaseStateMachine
     private void OnMoveComplete()
     {
         PlayerAnimator.SetMove(MoveInput);
-        IsMoving = false;
+        SetIsMoving(false);
+    }
+
+    private void SetIsMoving(bool isMoving)
+    {
+        IsMoving = isMoving;
+        PlayerAnimator.SetIsMoving(IsMoving);
     }
 
     private Vector3 GetMove()

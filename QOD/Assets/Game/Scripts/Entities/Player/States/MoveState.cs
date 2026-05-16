@@ -8,7 +8,7 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void EnterState()
     {
-        Context.PlayerAnimator.SetIsMoving(true);
+
     }
 
     public override void UpdateState()
@@ -25,6 +25,6 @@ public class MoveState : BaseState<PlayerFSM>
 
     public override void ExitState()
     {
-        Context.PlayerAnimator.SetIsMoving(false);
+
     }
 }
