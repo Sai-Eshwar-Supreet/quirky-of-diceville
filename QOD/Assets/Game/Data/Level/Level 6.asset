@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ca19202ae8ce0641bc5e4f76cdd5b6a, type: 3}
-  m_Name: Level 4
+  m_Name: Level 6
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  _id: 4
-  _nextLevel: {fileID: 11400000, guid: a249a7b8e5581d244ac9354f1c4eb5ec, type: 2}
-  _levelPrefab: {fileID: 7863739998407036830, guid: e3a42ea4dcd03dd49b11004a80ec4f36, type: 3}
-  _sprite: {fileID: 21300000, guid: b33b68590c525d0489f5367b4d0204c5, type: 3}
+  _id: 6
+  _nextLevel: {fileID: 11400000, guid: b7e520d28000f20489cfdfc63d179fcf, type: 2}
+  _levelPrefab: {fileID: 7863739998407036830, guid: e0c45a1a06459a84f8b496e1b62aab6b, type: 3}
+  _sprite: {fileID: 21300000, guid: bddecde9084b7ff4d8dcc4fd49949b92, type: 3}
   _defaultUnlockedColors:
   - {fileID: 11400000, guid: ff84215071629d64a902ac969f4797f4, type: 2}
   - {fileID: 11400000, guid: 4fd0cadf955181545965147b3a708e62, type: 2}
   - {fileID: 11400000, guid: d3e66c27b029de044b27d4157d86e571, type: 2}
+  - {fileID: 11400000, guid: 638ad3cda2c51e1468133e818fc4deea, type: 2}
   _defaultUnlockedValues:
   - {fileID: 11400000, guid: 2698d9d209558d540946aa64b8379397, type: 2}
   - {fileID: 11400000, guid: 2f944f03306948d4e8068265470084b6, type: 2}

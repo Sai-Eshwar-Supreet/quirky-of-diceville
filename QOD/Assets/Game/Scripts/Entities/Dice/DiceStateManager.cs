@@ -36,7 +36,10 @@ public class DiceStateManager : MonoBehaviour
 
     public bool Matches(DiceStateManager other)
     {
-        bool isMatch = (other.ColorIndex == ColorIndex && other.ValueIndex == ValueIndex);
+        bool isColorMatch = !_type.HasFlag(DiceType.Color) || other.ColorIndex == ColorIndex;
+        bool isValueMatch = !_type.HasFlag(DiceType.Value) || other.ValueIndex == ValueIndex;
+
+        bool isMatch = isColorMatch && isValueMatch;
         return isMatch;
     }
 
