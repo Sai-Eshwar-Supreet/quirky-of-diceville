@@ -5,6 +5,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerFSM[] _players;
+    [SerializeField] private int _startPlayerIndex = 0;
     [SerializeField] private PlayerUI _playerUI;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private AppearanceChangeUI _appearanceChangeUI;
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
         _playerInputManager.Init();
         if(_players.Length == 0) throw new System.Exception("No players assigned to PlayerController!");
 
-        _currentPlayerIndex = 0;
+        _currentPlayerIndex = GetWrappedPlayerIndex(_startPlayerIndex);
         _players[_currentPlayerIndex].SupplyActivationInput(true);
 
         _cameraController.MoveImmediateTo(_players[_currentPlayerIndex].transform);
@@ -93,13 +94,19 @@ public class PlayerController : MonoBehaviour
     {
         if (_appearanceChangeUI.IsOpen) return;
         DeactivateCurrentPlayer();
-        int length = _players.Length;
-        _currentPlayerIndex = (length + _currentPlayerIndex + direction) % length;
+        _currentPlayerIndex = GetWrappedPlayerIndex(_currentPlayerIndex + direction);
         _players[_currentPlayerIndex].SupplyActivationInput(true);
 
         _cameraController.MoveTo(_players[_currentPlayerIndex].transform);
 
         _playerUI.SwitchTo(_currentPlayerIndex);
+    }
+
+    private int GetWrappedPlayerIndex(int index)
+    {
+        int length = _players.Length;
+        var wrappedIndex = (length + index) % length;
+        return wrappedIndex;
     }
 
     private void DeactivateCurrentPlayer()
