@@ -29,10 +29,6 @@ public class LevelData : ScriptableObject
                 _defaultUnlockedColorsCache = _defaultUnlockedColors.Select(data => data.ID).ToList();
             }
 
-
-            UnityEngine.Debug.Log(_defaultUnlockedColors.Aggregate("Colors: ", (acc, next) => $"{acc}, {next}"));
-            UnityEngine.Debug.Log(_defaultUnlockedColorsCache?.Aggregate("Colors Cache: ", (acc, next) => $"{acc}, {next}"));
-
             return _defaultUnlockedColorsCache;
         }
     }
@@ -44,9 +40,6 @@ public class LevelData : ScriptableObject
             {
                 _defaultUnlockedValuesCache = _defaultUnlockedValues.Select(data => data.ID).ToList();
             }
-
-            UnityEngine.Debug.Log(_defaultUnlockedValues.Aggregate("Values: ", (acc, next) => $"{acc}, {next}"));
-            UnityEngine.Debug.Log(_defaultUnlockedValuesCache?.Aggregate("Values Cache: ", (acc, next) => $"{acc}, {next}"));
 
             return _defaultUnlockedValuesCache;
         }
