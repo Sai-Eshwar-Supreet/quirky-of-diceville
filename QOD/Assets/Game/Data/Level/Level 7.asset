@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ca19202ae8ce0641bc5e4f76cdd5b6a, type: 3}
-  m_Name: Level 6
+  m_Name: Level 7
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  _id: 6
-  _nextLevel: {fileID: 11400000, guid: 4e7782162febaf549a2eeb44f9ace81a, type: 2}
-  _levelPrefab: {fileID: 7863739998407036830, guid: 8fec3331d6796ff418a46270a35cfdb1, type: 3}
+  _id: 7
+  _nextLevel: {fileID: 11400000, guid: 2ed41e5823cf13447b31a64f964a784f, type: 2}
+  _levelPrefab: {fileID: 7863739998407036830, guid: e0c45a1a06459a84f8b496e1b62aab6b, type: 3}
   _sprite: {fileID: 21300000, guid: bddecde9084b7ff4d8dcc4fd49949b92, type: 3}
   _defaultUnlockedColors:
   - {fileID: 11400000, guid: ff84215071629d64a902ac969f4797f4, type: 2}
