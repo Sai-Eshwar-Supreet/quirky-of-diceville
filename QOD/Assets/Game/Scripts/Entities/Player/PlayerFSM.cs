@@ -105,16 +105,18 @@ public class PlayerFSM : BaseStateMachine
         return move;
     }
 
-    private bool CheckGroundAvailability(Vector3 requestedLocation, float maxDistance = 1f)
+    private bool CheckGroundAvailability(Vector3 requestedLocation, float maxDistance = 0.6f)
     {
         Vector3 direction = Vector3.down;
         var ray = new Ray(requestedLocation, direction);
+
         bool isGroundAvailable = Physics.Raycast(ray, maxDistance, _groundMask, QueryTriggerInteraction.Ignore);
         return isGroundAvailable;
     }
     private bool CheckSpaceAvailability(Vector3 requestedLocation, float maxDistance = 1f)
     {
         Vector3 direction = (requestedLocation - transform.position).normalized;
+
         var ray = new Ray(transform.position, direction);
         bool isSpaceAvailable = !Physics.Raycast(ray, maxDistance, _obstacleMask, QueryTriggerInteraction.Ignore);
         return isSpaceAvailable;
