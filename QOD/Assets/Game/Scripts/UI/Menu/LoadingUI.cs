@@ -13,9 +13,9 @@ public class LoadingUI : MonoBehaviour
         _panel.SetActive(isActive);
     }
 
-    public void UpdateProgress(float progress, string context = "scene")
+    public void UpdateProgress(float progress)
     {
         _loadingProgressBar.fillAmount = progress;
-        _loadingText.text = $"Loading {context}... {Mathf.RoundToInt(progress * 100)}%";
+        _loadingText.SetText($"{Mathf.RoundToInt(progress * 100)}%");
     }
 }

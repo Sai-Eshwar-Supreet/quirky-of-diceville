@@ -10,7 +10,7 @@ public class ExitsManager : MonoBehaviour
 
     private void Awake()
     {
-        _completionText.SetText($"0 / {_exits.Length}");
+        _completionText.SetText($"0/{_exits.Length}");
     }
 
     private void OnEnable()
@@ -37,7 +37,7 @@ public class ExitsManager : MonoBehaviour
             if (exit.IsAprropriateMatch) count++;
         }
 
-        _completionText.SetText($"{count} / {_exits.Length}");
+        _completionText.SetText($"{count}/{_exits.Length}");
 
         if (count != _exits.Length) return;
         
