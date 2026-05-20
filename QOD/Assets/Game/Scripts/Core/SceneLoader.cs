@@ -16,17 +16,24 @@ public class SceneLoader : MonoBehaviour
         _isLoading = true;
 
         _loadingUI.SetActive(true);
-        _loadingUI.UpdateProgress(0);
+        _loadingUI.SetTargetProgress(0);
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(buildIndex);
 
         operation.allowSceneActivation = false;
 
         while(operation.progress < 0.9f)
         {
-            _loadingUI.UpdateProgress(operation.progress / 0.9f);
+            _loadingUI.SetTargetProgress(operation.progress / 0.9f);
             await Task.Yield();
         }
-        _loadingUI.UpdateProgress(1);
+        _loadingUI.SetTargetProgress(1);
+
+        while (!_loadingUI.IsFinished) await Task.Yield();
+
+        await Task.Delay(250); // delay to show 100% complete
+
+
         operation.allowSceneActivation = true;
 
         while(!operation.isDone) await Task.Yield();
