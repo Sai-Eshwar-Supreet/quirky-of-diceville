@@ -1,10 +1,11 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUI : MonoBehaviour
 {
-    [SerializeField] private Image _levelImage;
+    [SerializeField] private TextMeshProUGUI _level;
     [SerializeField] private Button _playLevelButton;
 
     private Action _onPlayCallback;
@@ -14,9 +15,9 @@ public class LevelUI : MonoBehaviour
         _playLevelButton.onClick.AddListener(() => _onPlayCallback?.Invoke());
     }
 
-    public void Set(Sprite icon, Action onPlayCallback)
+    public void Set(int level, Action onPlayCallback)
     {
-        _levelImage.sprite = icon;
+        _level.SetText(level.ToString("D2"));
         _onPlayCallback = onPlayCallback;
     }
 

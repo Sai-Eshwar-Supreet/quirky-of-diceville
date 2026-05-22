@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class AppearanceChangeUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _panel;
-    [SerializeField] private GameObject _info;
     [SerializeField] private AppearanceChangeToggleGroup _colorToggleGroup;
     [SerializeField] private AppearanceChangeToggleGroup _valueToggleGroup;
     [SerializeField] private AppearanceChangeToggle _togglePrefab;
@@ -11,7 +9,7 @@ public class AppearanceChangeUI : MonoBehaviour
     public event System.Action<int> OnColorSelected;
     public event System.Action<int> OnValueSelected;
 
-    public bool IsOpen => _panel.activeInHierarchy;
+    public bool IsOpen { get; private set; }
 
     private void Awake()
     {
@@ -50,15 +48,20 @@ public class AppearanceChangeUI : MonoBehaviour
 
     public void Open(int activeColorIndex, int activeValueIndex)
     {
-        _info.SetActive(false);
-        _panel.SetActive(true);
         _colorToggleGroup.Select(activeColorIndex);
         _valueToggleGroup.Select(activeValueIndex);
+
+        _colorToggleGroup.Move(false);
+        _valueToggleGroup.Move(false);
+
+        IsOpen = true;
     }
 
     public void Close()
     {
-        _info.SetActive(true);
-        _panel.SetActive(false);
+        _colorToggleGroup.Move(true);
+        _valueToggleGroup.Move(true);
+
+        IsOpen = false;
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ecea63887b376a4d87c6a5e151fcd08
+guid: 71dce181637d39242a0f147eae8d3c66
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -83,7 +83,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: d3d2a5add692efe44a10523d4b65c934
+    spriteID: 584241350b2bfde4da4727ea909d8b46
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -95,7 +95,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: Value 6
+  - name: 'Level Select Button: Normal'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -105,9 +105,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2048
-      height: 2048
-    spriteID: 2c04eb8e79c5b3246b6a302436b62985
+      width: 1905
+      height: 259
+    spriteID: f290ed3e09b846c469d5c7cf49189f61
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -115,9 +115,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 5
+    uvTransform: {x: 3, y: 4}
+    spritePosition: {x: 72, y: 1689}
+  - name: 'Level Select Button: Highlighted'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -126,10 +126,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: bbd936d8d1feef0468014b712823d5b3
+      y: 271
+      width: 1905
+      height: 259
+    spriteID: d78be1a7b955a704c9613c94556bb6d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -137,9 +137,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 4
+    uvTransform: {x: 3, y: 271}
+    spritePosition: {x: 72, y: 1292}
+  - name: 'Level Select Button: Pressed'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -148,10 +148,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: 14ac8afcd520874408d69aefa8a35f89
+      y: 1072
+      width: 1905
+      height: 259
+    spriteID: 9b45819b00a23994a91ad036f0e3499d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,9 +159,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4116}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 3
+    uvTransform: {x: -1, y: 1067}
+    spritePosition: {x: 76, y: 900}
+  - name: 'Level Select Button: Selected'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -169,11 +169,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2060
-      y: 4
-      width: 2048
-      height: 2048
-    spriteID: ed056dd753b60f245913723bf6eef8ec
+      x: 4
+      y: 538
+      width: 1905
+      height: 259
+    spriteID: 847e1efad0f08ad45925b2a20310126d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,9 +181,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 2
+    uvTransform: {x: 3, y: 538}
+    spritePosition: {x: 72, y: 498}
+  - name: 'Level Select Button: Disabled'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -191,11 +191,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2060
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: 5f4abc8ba691e944f8ed65215ada2535
+      x: 4
+      y: 805
+      width: 1905
+      height: 259
+    spriteID: 1b1f36b98d828644091cdd139d9bd7ee
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -203,96 +203,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2060, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: a98c5502145c32042a015624eb485aca
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4116}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 4
-      width: 2048
-      height: 2048
-    spriteID: 25053fcce56e5f04fa32d92d31c31432
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Empty
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: a34d102b966a9f444a33b08dfb5d9ab6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Checkmark
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: 4ea69ec995f3fcf47bd16dbb8314c349
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 4116}
-    spritePosition: {x: 0, y: 0}
+    uvTransform: {x: 3, y: 805}
+    spritePosition: {x: 72, y: 101}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
@@ -372,93 +284,53 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: Value 6
-    spriteName: Value 6
+  - name: 'Level Select Button: Normal'
+    spriteName: 'Level Select Button: Normal'
     isGroup: 0
     parentIndex: -1
-    spriteID: 2c04eb8e79c5b3246b6a302436b62985
-    layerID: 16
+    spriteID: f290ed3e09b846c469d5c7cf49189f61
+    layerID: 22
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Value 5
-    spriteName: Value 5
+  - name: 'Level Select Button: Highlighted'
+    spriteName: 'Level Select Button: Highlighted'
     isGroup: 0
     parentIndex: -1
-    spriteID: bbd936d8d1feef0468014b712823d5b3
+    spriteID: d78be1a7b955a704c9613c94556bb6d8
     layerID: 14
-    mosaicPosition: {x: 4, y: 2060}
+    mosaicPosition: {x: 4, y: 271}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Value 4
-    spriteName: Value 4
+  - name: 'Level Select Button: Pressed'
+    spriteName: 'Level Select Button: Pressed'
     isGroup: 0
     parentIndex: -1
-    spriteID: 14ac8afcd520874408d69aefa8a35f89
-    layerID: 11
-    mosaicPosition: {x: 4, y: 4116}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 3
-    spriteName: Value 3
-    isGroup: 0
-    parentIndex: -1
-    spriteID: ed056dd753b60f245913723bf6eef8ec
-    layerID: 9
-    mosaicPosition: {x: 2060, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 2
-    spriteName: Value 2
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 5f4abc8ba691e944f8ed65215ada2535
-    layerID: 7
-    mosaicPosition: {x: 2060, y: 2060}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 1
-    spriteName: Value 1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: a98c5502145c32042a015624eb485aca
-    layerID: 5
-    mosaicPosition: {x: 2060, y: 4116}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 0
-    spriteName: Value 0
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 25053fcce56e5f04fa32d92d31c31432
+    spriteID: 9b45819b00a23994a91ad036f0e3499d
     layerID: 17
-    mosaicPosition: {x: 4116, y: 4}
+    mosaicPosition: {x: 4, y: 1072}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Empty
-    spriteName: Empty
+  - name: 'Level Select Button: Selected'
+    spriteName: 'Level Select Button: Selected'
     isGroup: 0
     parentIndex: -1
-    spriteID: a34d102b966a9f444a33b08dfb5d9ab6
-    layerID: 18
-    mosaicPosition: {x: 4116, y: 2060}
+    spriteID: 847e1efad0f08ad45925b2a20310126d
+    layerID: 19
+    mosaicPosition: {x: 4, y: 538}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Checkmark
-    spriteName: Checkmark
+  - name: 'Level Select Button: Disabled'
+    spriteName: 'Level Select Button: Disabled'
     isGroup: 0
     parentIndex: -1
-    spriteID: 4ea69ec995f3fcf47bd16dbb8314c349
+    spriteID: 1b1f36b98d828644091cdd139d9bd7ee
     layerID: 15
-    mosaicPosition: {x: 4116, y: 4116}
+    mosaicPosition: {x: 4, y: 805}
     flatten: 0
     isImported: 1
     isVisible: 1

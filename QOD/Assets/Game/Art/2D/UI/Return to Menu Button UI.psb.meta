@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ecea63887b376a4d87c6a5e151fcd08
+guid: c6dfde2330ea36143b7983b9cc1e46ee
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -83,7 +83,7 @@ ScriptedImporter:
       y: 0
       width: 0
       height: 0
-    spriteID: d3d2a5add692efe44a10523d4b65c934
+    spriteID: 67946a98fa6b63b458dd8a4e5461970b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -95,7 +95,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: Value 6
+  - name: 'Return to Menu Button: Normal'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -105,9 +105,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2048
-      height: 2048
-    spriteID: 2c04eb8e79c5b3246b6a302436b62985
+      width: 1905
+      height: 259
+    spriteID: 2cfbee9439f32cc45b3be5e463aecb2b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -115,9 +115,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 5
+    uvTransform: {x: 3, y: 4}
+    spritePosition: {x: 72, y: 1689}
+  - name: 'Return to Menu Button: Highlighted'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -126,10 +126,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: bbd936d8d1feef0468014b712823d5b3
+      y: 271
+      width: 1905
+      height: 259
+    spriteID: 50e09bc7b5b61534fbcf7e862c291da1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -137,9 +137,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 4
+    uvTransform: {x: 3, y: 271}
+    spritePosition: {x: 72, y: 1292}
+  - name: 'Return to Menu Button: Pressed'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -148,10 +148,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: 14ac8afcd520874408d69aefa8a35f89
+      y: 538
+      width: 1905
+      height: 259
+    spriteID: b3fbaafa3d6e0c942979f0a8a3cd7c10
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,9 +159,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4116}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 3
+    uvTransform: {x: 3, y: 538}
+    spritePosition: {x: 72, y: 895}
+  - name: 'Return to Menu Button: Selected'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -169,11 +169,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2060
-      y: 4
-      width: 2048
-      height: 2048
-    spriteID: ed056dd753b60f245913723bf6eef8ec
+      x: 4
+      y: 805
+      width: 1905
+      height: 259
+    spriteID: e3ca30f2157320849b006f71913884f6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,9 +181,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 2
+    uvTransform: {x: 3, y: 805}
+    spritePosition: {x: 72, y: 498}
+  - name: 'Return to Menu Button: Disabled'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -191,11 +191,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 2060
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: 5f4abc8ba691e944f8ed65215ada2535
+      x: 4
+      y: 1072
+      width: 1905
+      height: 259
+    spriteID: 58380224c77766d4b8aa967dbcb98579
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -203,96 +203,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2060, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: a98c5502145c32042a015624eb485aca
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4116}
-    spritePosition: {x: 0, y: 0}
-  - name: Value 0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 4
-      width: 2048
-      height: 2048
-    spriteID: 25053fcce56e5f04fa32d92d31c31432
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 4}
-    spritePosition: {x: 0, y: 0}
-  - name: Empty
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 2060
-      width: 2048
-      height: 2048
-    spriteID: a34d102b966a9f444a33b08dfb5d9ab6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 2060}
-    spritePosition: {x: 0, y: 0}
-  - name: Checkmark
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4116
-      y: 4116
-      width: 2048
-      height: 2048
-    spriteID: 4ea69ec995f3fcf47bd16dbb8314c349
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4116, y: 4116}
-    spritePosition: {x: 0, y: 0}
+    uvTransform: {x: 3, y: 1072}
+    spritePosition: {x: 72, y: 101}
   spriteImportData: []
   rigSpriteImportData: []
   sharedRigSpriteImportData: []
@@ -372,93 +284,53 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: Value 6
-    spriteName: Value 6
+  - name: 'Return to Menu Button: Normal'
+    spriteName: 'Return to Menu Button: Normal'
     isGroup: 0
     parentIndex: -1
-    spriteID: 2c04eb8e79c5b3246b6a302436b62985
-    layerID: 16
+    spriteID: 2cfbee9439f32cc45b3be5e463aecb2b
+    layerID: 22
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Value 5
-    spriteName: Value 5
+  - name: 'Return to Menu Button: Highlighted'
+    spriteName: 'Return to Menu Button: Highlighted'
     isGroup: 0
     parentIndex: -1
-    spriteID: bbd936d8d1feef0468014b712823d5b3
+    spriteID: 50e09bc7b5b61534fbcf7e862c291da1
     layerID: 14
-    mosaicPosition: {x: 4, y: 2060}
+    mosaicPosition: {x: 4, y: 271}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Value 4
-    spriteName: Value 4
+  - name: 'Return to Menu Button: Pressed'
+    spriteName: 'Return to Menu Button: Pressed'
     isGroup: 0
     parentIndex: -1
-    spriteID: 14ac8afcd520874408d69aefa8a35f89
-    layerID: 11
-    mosaicPosition: {x: 4, y: 4116}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 3
-    spriteName: Value 3
-    isGroup: 0
-    parentIndex: -1
-    spriteID: ed056dd753b60f245913723bf6eef8ec
-    layerID: 9
-    mosaicPosition: {x: 2060, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 2
-    spriteName: Value 2
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 5f4abc8ba691e944f8ed65215ada2535
-    layerID: 7
-    mosaicPosition: {x: 2060, y: 2060}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 1
-    spriteName: Value 1
-    isGroup: 0
-    parentIndex: -1
-    spriteID: a98c5502145c32042a015624eb485aca
-    layerID: 5
-    mosaicPosition: {x: 2060, y: 4116}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Value 0
-    spriteName: Value 0
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 25053fcce56e5f04fa32d92d31c31432
+    spriteID: b3fbaafa3d6e0c942979f0a8a3cd7c10
     layerID: 17
-    mosaicPosition: {x: 4116, y: 4}
+    mosaicPosition: {x: 4, y: 538}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Empty
-    spriteName: Empty
+  - name: 'Return to Menu Button: Selected'
+    spriteName: 'Return to Menu Button: Selected'
     isGroup: 0
     parentIndex: -1
-    spriteID: a34d102b966a9f444a33b08dfb5d9ab6
-    layerID: 18
-    mosaicPosition: {x: 4116, y: 2060}
+    spriteID: e3ca30f2157320849b006f71913884f6
+    layerID: 19
+    mosaicPosition: {x: 4, y: 805}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Checkmark
-    spriteName: Checkmark
+  - name: 'Return to Menu Button: Disabled'
+    spriteName: 'Return to Menu Button: Disabled'
     isGroup: 0
     parentIndex: -1
-    spriteID: 4ea69ec995f3fcf47bd16dbb8314c349
+    spriteID: 58380224c77766d4b8aa967dbcb98579
     layerID: 15
-    mosaicPosition: {x: 4116, y: 4116}
+    mosaicPosition: {x: 4, y: 1072}
     flatten: 0
     isImported: 1
     isVisible: 1

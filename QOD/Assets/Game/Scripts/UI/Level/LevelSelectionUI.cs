@@ -25,7 +25,7 @@ public class LevelSelectionUI : MonoBehaviour
         {
             var levelUI = Instantiate(_levelUIPrefab, _levelUIContainer);
             levelUI.SetInteractable(_selectedLevel != levelData.ID);
-            levelUI.Set(levelData.Sprite, () => OnLevelPlayRequested?.Invoke(levelData.ID));
+            levelUI.Set(levelData.ID + 1, () => OnLevelPlayRequested?.Invoke(levelData.ID));
 
             _levelUIs.Add(levelData.ID, levelUI);
         }
