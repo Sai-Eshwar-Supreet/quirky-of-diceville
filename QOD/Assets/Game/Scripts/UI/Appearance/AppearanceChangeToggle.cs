@@ -11,7 +11,7 @@ public class AppearanceChangeToggle : MonoBehaviour
 
     public void Set(Sprite sprite, Color color, Action onClick)
     {
-        _image.sprite = sprite;
+        if(sprite != null) _image.sprite = sprite;
         _image.color = color;
         _toggle.interactable = false;
 
