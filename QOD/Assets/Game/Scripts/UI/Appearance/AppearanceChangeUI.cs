@@ -6,6 +6,10 @@ public class AppearanceChangeUI : MonoBehaviour
     [SerializeField] private AppearanceChangeToggleGroup _valueToggleGroup;
     [SerializeField] private AppearanceChangeToggle _togglePrefab;
 
+    [Header("Audio")]
+    [SerializeField] private SoundConfig _slideInConfig;
+    [SerializeField] private SoundConfig _slideOutConfig;
+
     public event System.Action<int> OnColorSelected;
     public event System.Action<int> OnValueSelected;
 
@@ -54,6 +58,8 @@ public class AppearanceChangeUI : MonoBehaviour
         _colorToggleGroup.Move(false);
         _valueToggleGroup.Move(false);
 
+        SoundManager.Play(_slideInConfig, "Appearance UI");
+
         IsOpen = true;
     }
 
@@ -62,6 +68,8 @@ public class AppearanceChangeUI : MonoBehaviour
         _colorToggleGroup.Move(true);
         _valueToggleGroup.Move(true);
 
+
+        SoundManager.Play(_slideOutConfig, "Appearance UI");
         IsOpen = false;
     }
 }

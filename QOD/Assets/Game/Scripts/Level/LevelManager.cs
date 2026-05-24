@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoSingleton<LevelManager>
 {
     [SerializeField] private Button _exitToMenuButton;
+    [SerializeField] private PauseUI _pauseUI;
     [SerializeField] private LevelSelectionUI _levelSelectionUI;
 
     private LevelDataManager _levelDataManager;
@@ -56,6 +57,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         _levelObject = Instantiate(levelData.LevelPrefab);
         ServiceLocator.Register(_levelObject);
         _levelSelectionUI.Close();
+        _pauseUI.Close();
     }
 
     public void UnloadLevel()
@@ -86,13 +88,26 @@ public class LevelManager : MonoSingleton<LevelManager>
     public void TogglePause(InputAction.CallbackContext ctx)
     {
         if (ctx.phase != InputActionPhase.Performed) return;
-        if (_levelSelectionUI.IsOpen) _levelSelectionUI.Close();
-        else _levelSelectionUI.Open(_currentLevel);
+        if (_pauseUI.IsOpen)
+        {
+            _levelSelectionUI.Close();
+            _pauseUI.Close();
+        }
+        else
+        {
+            _pauseUI.Open();
+            _levelSelectionUI.SetCurrentLevel(_currentLevel);
+        }
     }
 
     public void ExitLevel()
     {
         UnloadLevel();
         ServiceLocator.Get<LoadingManger>().Load(SceneType.Menu);
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus) _pauseUI.Open();
     }
 }

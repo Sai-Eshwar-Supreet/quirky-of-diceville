@@ -969,6 +969,8 @@ MonoBehaviour:
   _colorToggleGroup: {fileID: 7502379814490147442}
   _valueToggleGroup: {fileID: 8508381759295844048}
   _togglePrefab: {fileID: 6254591904390832820, guid: 9733c57757616be46b8dea20b1274f89, type: 3}
+  _slideInConfig: {fileID: 11400000, guid: 87f23101c1ba5a949bc08511517dde37, type: 2}
+  _slideOutConfig: {fileID: 11400000, guid: cfb94217a7ba214418b5a4832bc67246, type: 2}
 --- !u!1 &7151489249410135468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,23 +1257,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.2027
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.65
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.54947996
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.95036966
+      value: 0.9436283
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.31112298
+      value: 0.33100697
       objectReference: {fileID: 0}
     - target: {fileID: 5287727683173117323, guid: 7108119dca20d254cae587d37fd92eb4, type: 3}
       propertyPath: m_LocalRotation.y

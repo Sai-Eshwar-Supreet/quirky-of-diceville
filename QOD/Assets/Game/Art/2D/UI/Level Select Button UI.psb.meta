@@ -148,7 +148,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 1072
+      y: 538
       width: 1905
       height: 259
     spriteID: 9b45819b00a23994a91ad036f0e3499d
@@ -159,31 +159,9 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: -1, y: 1067}
-    spritePosition: {x: 76, y: 900}
-  - name: 'Level Select Button: Selected'
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 538
-      width: 1905
-      height: 259
-    spriteID: 847e1efad0f08ad45925b2a20310126d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
     uvTransform: {x: 3, y: 538}
-    spritePosition: {x: 72, y: 498}
-  - name: 'Level Select Button: Disabled'
+    spritePosition: {x: 72, y: 895}
+  - name: 'Level Select Button: Selected'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -195,7 +173,7 @@ ScriptedImporter:
       y: 805
       width: 1905
       height: 259
-    spriteID: 1b1f36b98d828644091cdd139d9bd7ee
+    spriteID: 847e1efad0f08ad45925b2a20310126d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -204,6 +182,28 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 3, y: 805}
+    spritePosition: {x: 72, y: 498}
+  - name: 'Level Select Button: Disabled'
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1072
+      width: 1905
+      height: 259
+    spriteID: 1b1f36b98d828644091cdd139d9bd7ee
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 3, y: 1072}
     spritePosition: {x: 72, y: 101}
   spriteImportData: []
   rigSpriteImportData: []
@@ -310,7 +310,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 9b45819b00a23994a91ad036f0e3499d
     layerID: 17
-    mosaicPosition: {x: 4, y: 1072}
+    mosaicPosition: {x: 4, y: 538}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -320,7 +320,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 847e1efad0f08ad45925b2a20310126d
     layerID: 19
-    mosaicPosition: {x: 4, y: 538}
+    mosaicPosition: {x: 4, y: 805}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -330,7 +330,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 1b1f36b98d828644091cdd139d9bd7ee
     layerID: 15
-    mosaicPosition: {x: 4, y: 805}
+    mosaicPosition: {x: 4, y: 1072}
     flatten: 0
     isImported: 1
     isVisible: 1

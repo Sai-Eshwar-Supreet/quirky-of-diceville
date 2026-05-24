@@ -95,29 +95,7 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   multiSpriteImportData: []
   layeredSpriteImportData:
-  - name: Level Item BG
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 400, y: 400, z: 400, w: 400}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4116
-      width: 1536
-      height: 2048
-    spriteID: 25129696d04aeda4394139ef504477ce
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4116}
-    spritePosition: {x: 256, y: 0}
-  - name: 'Play : Normal'
+  - name: 'Level Item : Disabled'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -129,7 +107,7 @@ ScriptedImporter:
       y: 4
       width: 2048
       height: 2048
-    spriteID: 79aa24597df931b4b9cf48593afb84c1
+    spriteID: 7f7014035f81cfc4ca56f287c7fda399
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +117,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
     spritePosition: {x: 0, y: 0}
-  - name: 'Play: Highlighted'
+  - name: 'Level Item : Selected'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -151,7 +129,7 @@ ScriptedImporter:
       y: 2060
       width: 2048
       height: 2048
-    spriteID: 41267578c54a5174f98bba542c337559
+    spriteID: dd691c1456a6b87498eb0b40da2364f6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +139,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 2060}
     spritePosition: {x: 0, y: 0}
-  - name: 'Play: Pressed'
+  - name: 'Level Item : Pressed'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -173,7 +151,7 @@ ScriptedImporter:
       y: 4116
       width: 2048
       height: 2048
-    spriteID: ed281cfd2f9d5bc4c8afdd56db83127f
+    spriteID: 433c605182e91e6498c9a7b75c27778a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -183,7 +161,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4116}
     spritePosition: {x: 0, y: 0}
-  - name: 'Play : Selected'
+  - name: 'Level Item : Highlighted'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -195,7 +173,7 @@ ScriptedImporter:
       y: 4
       width: 2048
       height: 2048
-    spriteID: d7534fe1b548a9e46b8c1b28eaaf7991
+    spriteID: 1e228554886eded4dbb70961c19bd43d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -205,11 +183,11 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 2060, y: 4}
     spritePosition: {x: 0, y: 0}
-  - name: 'Play: Disabled'
+  - name: 'Level Item : Normal'
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 400, y: 400, z: 400, w: 400}
     customData: 
     rect:
       serializedVersion: 2
@@ -217,7 +195,7 @@ ScriptedImporter:
       y: 2060
       width: 2048
       height: 2048
-    spriteID: f236ace4733fbbf4a811b81ab7896838
+    spriteID: 25129696d04aeda4394139ef504477ce
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -306,13 +284,53 @@ ScriptedImporter:
   resliceFromLayer: 0
   pSDLayerImportSetting: []
   psdLayers:
-  - name: Level Item BG
-    spriteName: Level Item BG
+  - name: 'Level Item : Disabled'
+    spriteName: 'Level Item : Disabled'
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7f7014035f81cfc4ca56f287c7fda399
+    layerID: 53
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Level Item : Selected'
+    spriteName: 'Level Item : Selected'
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dd691c1456a6b87498eb0b40da2364f6
+    layerID: 52
+    mosaicPosition: {x: 4, y: 2060}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Level Item : Pressed'
+    spriteName: 'Level Item : Pressed'
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 433c605182e91e6498c9a7b75c27778a
+    layerID: 51
+    mosaicPosition: {x: 4, y: 4116}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Level Item : Highlighted'
+    spriteName: 'Level Item : Highlighted'
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 1e228554886eded4dbb70961c19bd43d
+    layerID: 50
+    mosaicPosition: {x: 2060, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Level Item : Normal'
+    spriteName: 'Level Item : Normal'
     isGroup: 0
     parentIndex: -1
     spriteID: 25129696d04aeda4394139ef504477ce
     layerID: 29
-    mosaicPosition: {x: 2060, y: 4116}
+    mosaicPosition: {x: 2060, y: 2060}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -324,8 +342,8 @@ ScriptedImporter:
     layerID: 34
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: 'Play: Highlighted'
     spriteName: 'Play: Highlighted'
     isGroup: 0
@@ -334,8 +352,8 @@ ScriptedImporter:
     layerID: 42
     mosaicPosition: {x: 4, y: 2060}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: 'Play: Pressed'
     spriteName: 'Play: Pressed'
     isGroup: 0
@@ -344,8 +362,8 @@ ScriptedImporter:
     layerID: 45
     mosaicPosition: {x: 4, y: 4116}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: 'Play : Selected'
     spriteName: 'Play : Selected'
     isGroup: 0
@@ -354,8 +372,8 @@ ScriptedImporter:
     layerID: 47
     mosaicPosition: {x: 2060, y: 4}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   - name: 'Play: Disabled'
     spriteName: 'Play: Disabled'
     isGroup: 0
@@ -364,8 +382,8 @@ ScriptedImporter:
     layerID: 48
     mosaicPosition: {x: 2060, y: 2060}
     flatten: 0
-    isImported: 1
-    isVisible: 1
+    isImported: 0
+    isVisible: 0
   mosaicPSDLayers: []
   rigPSDLayers: []
   sharedRigPSDLayers: []

@@ -7,6 +7,10 @@ public class LevelUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _level;
     [SerializeField] private Button _playLevelButton;
+    [SerializeField] private CanvasGroup _canvasGroup;
+
+
+    public bool IsInteractable => _playLevelButton.interactable;
 
     private Action _onPlayCallback;
 
@@ -21,8 +25,24 @@ public class LevelUI : MonoBehaviour
         _onPlayCallback = onPlayCallback;
     }
 
+    public void SetupNavigation(LevelUI left, LevelUI right, LevelUI up, LevelUI down)
+    {
+        var nav = _playLevelButton.navigation;
+
+
+        nav.mode = Navigation.Mode.Explicit;
+
+        nav.selectOnLeft = left ?  left._playLevelButton : null;
+        nav.selectOnRight = right ? right._playLevelButton : null;
+        nav.selectOnUp = up ? up._playLevelButton : null;
+        nav.selectOnDown = down ? down._playLevelButton : null;
+
+        _playLevelButton.navigation = nav;
+    }
+
     public void SetInteractable(bool interactable)
     {
         _playLevelButton.interactable = interactable;
+        _canvasGroup.alpha = interactable ? 1 : 0.1f;
     }
 }
