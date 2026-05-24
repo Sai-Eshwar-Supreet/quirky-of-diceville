@@ -10,13 +10,20 @@ public class LevelUI : MonoBehaviour
     [SerializeField] private CanvasGroup _canvasGroup;
 
 
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _levelLoadSound;
+
+
     public bool IsInteractable => _playLevelButton.interactable;
 
     private Action _onPlayCallback;
 
     private void Awake()
     {
-        _playLevelButton.onClick.AddListener(() => _onPlayCallback?.Invoke());
+        _playLevelButton.onClick.AddListener(() => { 
+            SoundManager.Play(_levelLoadSound, "Level Select");
+            _onPlayCallback?.Invoke();
+        });
     }
 
     public void Set(int level, Action onPlayCallback)

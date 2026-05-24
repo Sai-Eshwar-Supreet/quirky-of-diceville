@@ -603,7 +603,7 @@ MonoBehaviour:
   _inDuration: 0.2
   _inEase: 4
   _outAnchorPos: {x: 187.5, y: 0}
-  _outDuration: 0.25
+  _outDuration: 0.2
   _outEase: 4
 --- !u!1 &4334925824900429513
 GameObject:

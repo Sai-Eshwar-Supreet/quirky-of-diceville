@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 2132161872657293474}
   - component: {fileID: 8010255239037452153}
   - component: {fileID: 3126182408994982761}
+  - component: {fileID: 801402949021014239}
   m_Layer: 5
   m_Name: Level UI
   m_TagString: Untagged
@@ -289,6 +290,7 @@ MonoBehaviour:
   _level: {fileID: 6386610949806388080}
   _playLevelButton: {fileID: 2787784615646935534}
   _canvasGroup: {fileID: 7365458280341944384}
+  _levelLoadSound: {fileID: 11400000, guid: dc2dd748e87f4cc4a99e72763f139e95, type: 2}
 --- !u!114 &8010255239037452153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,12 +313,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 7153719931761037326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700f04f1a4d8a86488e75292400312e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 935418821a7b5ef44801781ac49f34aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISoundHandler
   _eventHandler: {fileID: 8010255239037452153}
   _clickConfig: {fileID: 11400000, guid: 4cfacd5bd609a4345a3afa9df7c26793, type: 2}
-  _pointerEnterConfig: {fileID: 11400000, guid: 4fb94deeabc97d44681df7ace6cc7746, type: 2}
+  _pointerEnterConfig: {fileID: 0}
   _pointerExitConfig: {fileID: 0}
   _beginDragConfig: {fileID: 0}
   _endDragConfig: {fileID: 0}
+--- !u!114 &801402949021014239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153719931761037326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c039a8e9ef0e9c349a40c141560b3049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIAnimationEventListener
+  animationHandler: {fileID: 8010255239037452153}
+  pointerEnterAnimations:
+  - {fileID: 11400000, guid: 8f0c2aabddd4c4a458756e2e229b0b8d, type: 2}
+  pointerExitAnimations:
+  - {fileID: 11400000, guid: 9870ba30a806a744da137be7432373e7, type: 2}
+  pointerDownAnimations: []
+  pointerUpAnimations: []
+  selectAnimations: []
+  deselectAnimations: []
+  enableAnimations: []
+  disableAnimations: []

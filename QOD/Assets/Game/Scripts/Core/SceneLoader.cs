@@ -7,6 +7,10 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private LoadingUI _loadingUI;
 
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _sceneLoadSound;
+
     private bool _isLoading = false;
 
     public async Task LoadScene(int buildIndex)
@@ -16,7 +20,7 @@ public class SceneLoader : MonoBehaviour
         _isLoading = true;
 
         _loadingUI.SetActive(true);
-        _loadingUI.SetTargetProgress(0);
+        SoundManager.Play(_sceneLoadSound, "Scene load");
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(buildIndex);
 

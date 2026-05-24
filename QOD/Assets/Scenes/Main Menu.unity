@@ -1191,11 +1191,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 989203414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700f04f1a4d8a86488e75292400312e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 935418821a7b5ef44801781ac49f34aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISoundHandler
   _eventHandler: {fileID: 989203419}
-  _clickConfig: {fileID: 11400000, guid: 4cfacd5bd609a4345a3afa9df7c26793, type: 2}
+  _clickConfig: {fileID: 0}
   _pointerEnterConfig: {fileID: 11400000, guid: 4fb94deeabc97d44681df7ace6cc7746, type: 2}
   _pointerExitConfig: {fileID: 0}
   _beginDragConfig: {fileID: 0}
@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773633399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700f04f1a4d8a86488e75292400312e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 935418821a7b5ef44801781ac49f34aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UISoundHandler
   _eventHandler: {fileID: 1773633405}
@@ -2066,6 +2066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   _loadingUI: {fileID: 924032077}
+  _sceneLoadSound: {fileID: 11400000, guid: 10b9cdcbbc8412c438243fab473d1638, type: 2}
 --- !u!1 &2029295496
 GameObject:
   m_ObjectHideFlags: 0

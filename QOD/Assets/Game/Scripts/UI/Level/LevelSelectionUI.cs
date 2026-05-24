@@ -1,7 +1,6 @@
+using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +8,39 @@ public class LevelSelectionUI : MonoBehaviour
 {
     [SerializeField] private Button _openButton;
     [SerializeField] private Button _closeButton;
-    [SerializeField] private GameObject _levelSelectionPanel;
     [SerializeField] private RectTransform _levelUIContainer;
     [SerializeField] private GridLayoutGroup _levelLayoutGroup;
     [SerializeField] private LevelUI _levelUIPrefab;
 
+    [Header("Animation")]
+    [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private float _openDuration = 0.25f;
+    [SerializeField] private float _closeDuration = 0.25f;
+
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _openSound;
+    [SerializeField] private SoundConfig _closeSound;
+
     private readonly Dictionary<int, LevelUI> _levelUIs = new();
 
     public event Action<int> OnLevelPlayRequested;
+    public event Action OnOpen;
+    public event Action OnClose;
 
     private int _selectedLevel = -1;
 
-    public bool IsOpen => _levelSelectionPanel.activeInHierarchy;
+    public bool IsOpen { get; private set; }
+
+
+    private Tween _fadeTween;
 
     private void Awake()
     {
         _openButton.onClick.AddListener(Open);
         _closeButton.onClick.AddListener(Close);
+
+        Close();
     }
 
     private void OnDestroy()
@@ -128,11 +143,25 @@ public class LevelSelectionUI : MonoBehaviour
 
     public void Open()
     {
-        _levelSelectionPanel.SetActive(true);
+        IsOpen = true;
+        SoundManager.Play(_openSound);
+        _canvasGroup.blocksRaycasts = true;
+        OnOpen?.Invoke();
+
+        _fadeTween?.Kill();
+        _fadeTween = _canvasGroup.DOFade(1, _openDuration).SetEase(Ease.InOutSine);
     }
 
     public void Close()
     {
-        _levelSelectionPanel.SetActive(false);
+        IsOpen = false;
+        SoundManager.Play(_closeSound);
+        _fadeTween?.Kill();
+
+        _fadeTween = _canvasGroup.DOFade(0, _closeDuration).OnComplete(() =>
+        {
+            _canvasGroup.blocksRaycasts = false;
+            OnClose?.Invoke();
+        }).SetEase(Ease.InOutSine);
     }
 }

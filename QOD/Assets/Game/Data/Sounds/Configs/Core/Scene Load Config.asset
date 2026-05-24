@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29f83a06fbc0b1c4cac5792e563e295b, type: 3}
-  m_Name: Button Hover Config
+  m_Name: Scene Load Config
   m_EditorClassIdentifier: Assembly-CSharp::SoundConfig
-  _mixerGroup: {fileID: -4518702535785150996, guid: 4f529e3112ecb7142b28b7272733ec80, type: 2}
+  _mixerGroup: {fileID: -6475501844960964363, guid: 4f529e3112ecb7142b28b7272733ec80, type: 2}
   _loop: 0
-  _baseVolume: 1
-  _randomizePitch: 1
+  _baseVolume: 0.9
+  _randomizePitch: 0
   _pitchRange: {x: 0.9, y: 1.1}
   _audioClips:
-  - {fileID: 8300000, guid: 33980ccdb59f59e47a1c15ca412dc646, type: 3}
+  - {fileID: 8300000, guid: 02d3d92ae689e5449878e481a2071d74, type: 3}

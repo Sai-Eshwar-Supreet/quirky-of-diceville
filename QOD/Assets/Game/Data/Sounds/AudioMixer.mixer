@@ -58,7 +58,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Game
+  m_Name: Others
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 6bb31dd833096cb4695582193b674f8b
   m_Children: []

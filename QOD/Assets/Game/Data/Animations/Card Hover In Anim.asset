@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e840d7a7e342e47b2edf86bc80a059, type: 3}
+  m_Name: Card Hover In Anim
+  m_EditorClassIdentifier: Assembly-CSharp::ScaleAnimation
+  _time: 0.15
+  _ease: 3
+  m_TargetValue: {x: 1.1, y: 1.1, z: 1.1}
