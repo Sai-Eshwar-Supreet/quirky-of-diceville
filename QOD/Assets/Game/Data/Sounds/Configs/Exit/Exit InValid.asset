@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundConfig
   _mixerGroup: {fileID: -6475501844960964363, guid: 4f529e3112ecb7142b28b7272733ec80, type: 2}
   _loop: 0
-  _baseVolume: 0.75
+  _baseVolume: 0.35
   _randomizePitch: 1
   _pitchRange: {x: 0.5, y: 0.5}
   _audioClips:
