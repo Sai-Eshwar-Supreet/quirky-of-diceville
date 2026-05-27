@@ -3,6 +3,12 @@ using UnityEngine;
 public class Upgrade : MonoBehaviour
 {
     [SerializeField] private DiceStateManager _diceStateManager;
+
+
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _pickupSound;
+
     private void Awake()
     {
         _diceStateManager.Enable();
@@ -33,7 +39,8 @@ public class Upgrade : MonoBehaviour
             {
                 levelDataUpdateService.UnlockValue(_diceStateManager.ValueIndex);
             }
-            // Add visual or audio feedback here, such as playing a sound effect or showing a particle effect.
+
+            SoundManager.Play(_pickupSound);
             Destroy(gameObject);
         }
     }

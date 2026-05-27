@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
   _diceStateManager: {fileID: 5670428075593096983}
+  _pickupSound: {fileID: 11400000, guid: ec4972528f400b143a86c48d762d8b82, type: 2}
 --- !u!114 &5670428075593096983
 MonoBehaviour:
   m_ObjectHideFlags: 0
