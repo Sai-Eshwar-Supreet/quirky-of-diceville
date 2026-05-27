@@ -1025,6 +1025,7 @@ MonoBehaviour:
   _playerUI: {fileID: 7886246063295720313}
   _cameraController: {fileID: 7259533272867090553}
   _appearanceChangeUI: {fileID: 5182394979971139345}
+  _playerSwitchSound: {fileID: 11400000, guid: de9bffaadf739404291a34cdbf48dd1d, type: 2}
 --- !u!1 &7394105925851317415
 GameObject:
   m_ObjectHideFlags: 0

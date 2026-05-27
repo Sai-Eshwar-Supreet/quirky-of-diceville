@@ -1,11 +1,22 @@
 using System;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
     [SerializeField] private DiceStateManager _diceStateManager;
     [SerializeField] private Collider _triggerCollider;
-    public bool IsAprropriateMatch { get; private set; } = false;
+
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem _validPS;
+    [SerializeField] private ParticleSystem _invalidPS;
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _validSound;
+    [SerializeField] private SoundConfig _invalidSound;
+
+    public bool IsAppropriateMatch { get; private set; } = false;
 
     public event Action OnExitInteracted;
     private void Awake()
@@ -35,7 +46,16 @@ public class Exit : MonoBehaviour
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
 
-            IsAprropriateMatch = _diceStateManager.Matches(playerDiceState);
+            var previousMatchState = IsAppropriateMatch;
+            IsAppropriateMatch = _diceStateManager.Matches(playerDiceState);
+
+            if(previousMatchState !=  IsAppropriateMatch)
+            {
+                SoundManager.Play(IsAppropriateMatch? _validSound : _invalidSound , "Exit sound");
+                UpdateParticleSystem(IsAppropriateMatch);
+            }
+
+
             OnExitInteracted?.Invoke();
         }
     }
@@ -43,8 +63,28 @@ public class Exit : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            IsAprropriateMatch = false;
+            if(IsAppropriateMatch) // exiting an appropriate match should trigger invalid sound and appropriate ps
+            {
+                SoundManager.Play(_invalidSound, "Exit sound");
+                UpdateParticleSystem(false);
+            }
+            IsAppropriateMatch = false;
+
             OnExitInteracted?.Invoke();
+        }
+    }
+
+    private void UpdateParticleSystem(bool valid)
+    {
+        if (valid)
+        {
+            _invalidPS.Clear();
+            _validPS.Emit(1);
+        }
+        else
+        {
+            _validPS.Clear();
+            _invalidPS.Emit(1);
         }
     }
 }

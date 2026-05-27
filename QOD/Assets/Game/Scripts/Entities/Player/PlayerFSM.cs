@@ -1,5 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
+using static UnityEngine.Rendering.STP;
 
 public class PlayerFSM : BaseStateMachine
 {
@@ -11,6 +13,9 @@ public class PlayerFSM : BaseStateMachine
     [SerializeField] private DiceStateManager _diceStateManager;
     [SerializeField] private PlayerAnimator _playerAnimator;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private SoundConfig _moveSound;
     public bool IsMovePressed => MoveInput != Vector2.zero;
     public Vector2 MoveInput { get; private set; }
 
@@ -74,6 +79,8 @@ public class PlayerFSM : BaseStateMachine
         {
             SetIsMoving(true);
             PlayerAnimator.SetMove(MoveInput);
+            SoundManager.PlayDedicated(_moveSound, _audioSource);
+
             _moveTween = transform.DOMove(targetPos, _moveDuration).SetEase(_moveEase);
             _moveTween.onComplete += OnMoveComplete;
         }

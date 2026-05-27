@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Door
   _doorGroup: {fileID: 0}
   _doorVisual: {fileID: 2533532555053044310}
+  _lockSound: {fileID: 11400000, guid: 542c2bf8e7570db47ac8d5e92c9f7e87, type: 2}
+  _unlockSound: {fileID: 11400000, guid: f130442041d764f4dbeb1265b2be1e50, type: 2}
 --- !u!1 &4604195875863622344
 GameObject:
   m_ObjectHideFlags: 0

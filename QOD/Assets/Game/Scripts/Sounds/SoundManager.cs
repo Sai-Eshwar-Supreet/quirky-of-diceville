@@ -151,6 +151,17 @@ public class SoundManager : MonoSingleton<SoundManager>
         }
     }
 
+    public static void PlayDedicated(SoundConfig config, AudioSource source)
+    {
+        source.Stop();
+        source.clip = config.GetRandomClip();
+        source.volume = config.BaseVolume;
+        source.pitch = config.GetPitch();
+        source.loop = config.Loop;
+        if (config.MixerGroup != null) source.outputAudioMixerGroup = config.MixerGroup;
+        source.Play();
+    }
+
     /// <summary>
     /// Plays a sound effect using a dynamic audio source by its unique ID.
     /// </summary>
@@ -257,8 +268,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         string id = idOverride ?? config.ID;
         StopSoundInternal(id);
 
-        AudioClip clip = config.GetRandomClip();
-        if (clip == null)
+        if (config.ClipsCount == 0)
         {
             onComplete?.Invoke();
             return;
@@ -279,14 +289,14 @@ public class SoundManager : MonoSingleton<SoundManager>
 
         if (onComplete != null && !config.Loop)
         {
-            Coroutine completionCoroutine = StartCoroutine(WaitForSoundCompletion(id, source, clip, onComplete));
+            Coroutine completionCoroutine = StartCoroutine(WaitForSoundCompletion(id, source, onComplete));
 
             if (_activeCompletionCoroutines.ContainsKey(id)) _activeCompletionCoroutines[id] = completionCoroutine;
             else _activeCompletionCoroutines.Add(id, completionCoroutine);
         }
     }
 
-    private IEnumerator WaitForSoundCompletion(string soundId, AudioSource source, AudioClip clip, Action onComplete)
+    private IEnumerator WaitForSoundCompletion(string soundId, AudioSource source, Action onComplete)
     {
         yield return new WaitUntil(() => !source.isPlaying);
 
@@ -358,7 +368,7 @@ public class SoundManager : MonoSingleton<SoundManager>
         source.volume = config.BaseVolume * volumeMultiplier;
         source.pitch = config.GetPitch();
         source.loop = loop;
-        SetSourceMixerGroup(source, config.VolumeCategory);
+        SetSourceMixerGroup(source, config.MixerGroup);
     }
 
     /// <summary>

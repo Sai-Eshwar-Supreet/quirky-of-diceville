@@ -127,6 +127,8 @@ MonoBehaviour:
   _keyType: 0
   _diceStateManager: {fileID: 7970775749233680936}
   _triggerCollider: {fileID: 332302929128104183}
+  _releasedSound: {fileID: 11400000, guid: 542c2bf8e7570db47ac8d5e92c9f7e87, type: 2}
+  _pressedSound: {fileID: 11400000, guid: f130442041d764f4dbeb1265b2be1e50, type: 2}
 --- !u!114 &7970775749233680936
 MonoBehaviour:
   m_ObjectHideFlags: 0

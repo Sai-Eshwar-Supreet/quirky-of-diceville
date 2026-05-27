@@ -34,7 +34,7 @@ public class ExitsManager : MonoBehaviour
         var count = 0;
         foreach (var exit in _exits)
         {
-            if (exit.IsAprropriateMatch) count++;
+            if (exit.IsAppropriateMatch) count++;
         }
 
         _completionText.SetText($"{count}/{_exits.Length}");

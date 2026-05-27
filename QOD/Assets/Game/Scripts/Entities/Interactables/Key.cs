@@ -14,6 +14,11 @@ public class Key : MonoBehaviour
     [SerializeField] private KeyType _keyType;
     [SerializeField] private DiceStateManager _diceStateManager;
     [SerializeField] private Collider _triggerCollider;
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _releasedSound;
+    [SerializeField] private SoundConfig _pressedSound;
+
     public bool IsPressed { get; private set; } = false;
 
     private void Awake()
@@ -31,20 +36,21 @@ public class Key : MonoBehaviour
         {
             var playerDiceState = other.gameObject.GetComponent<DiceStateManager>();
 
+            var previousState = IsPressed;
             IsPressed = _diceStateManager.Matches(playerDiceState);
 
-            if (!IsPressed) return;
+            if (previousState == IsPressed) return;
 
-            if (_keyType == KeyType.OneTime)
+            SoundManager.Play(IsPressed ? _pressedSound : _releasedSound, $"Key state sound : {gameObject.GetEntityId()}");
+
+
+            if (IsPressed && _keyType == KeyType.OneTime)
             {
                 _diceStateManager.Disable();
                 _triggerCollider.enabled = false;
             }
 
-            foreach (var door in _doors)
-            {
-                door.SetLockState(true);
-            }
+            UpdateDoorStates();
         }
     }
 
@@ -52,11 +58,18 @@ public class Key : MonoBehaviour
     {
         if (other.CompareTag("Player") && _keyType == KeyType.PressurePlate)
         {
+            if(IsPressed) SoundManager.Play(_releasedSound, $"Key state sound : {gameObject.GetEntityId()}"); // if pressed, release it
+
             IsPressed = false;
-            foreach (var door in _doors)
-            {
-                door.SetLockState(false);
-            }
+            UpdateDoorStates();
+        }
+    }
+
+    private void UpdateDoorStates()
+    {
+        foreach (var door in _doors)
+        {
+            door.SetLockState(IsPressed);
         }
     }
 }

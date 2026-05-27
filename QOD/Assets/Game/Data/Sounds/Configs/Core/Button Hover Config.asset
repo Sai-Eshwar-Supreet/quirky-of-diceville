@@ -16,6 +16,6 @@ MonoBehaviour:
   _loop: 0
   _baseVolume: 1
   _randomizePitch: 1
-  _pitchRange: {x: 0.9, y: 1.1}
+  _pitchRange: {x: 1, y: 1.1}
   _audioClips:
   - {fileID: 8300000, guid: 33980ccdb59f59e47a1c15ca412dc646, type: 3}

@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerUI _playerUI;
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private AppearanceChangeUI _appearanceChangeUI;
+
+    [Header("Sounds")]
+    [SerializeField] private SoundConfig _playerSwitchSound;
+
+
     private readonly PlayerInputManager _playerInputManager = new();
 
     private int _currentPlayerIndex;
@@ -93,8 +98,15 @@ public class PlayerController : MonoBehaviour
     private void OnSwitch(int direction)
     {
         if (_appearanceChangeUI.IsOpen) return;
+
+        var newPlayerIndex = GetWrappedPlayerIndex(_currentPlayerIndex + direction);
+
+        if (newPlayerIndex == _currentPlayerIndex) return;
+
+        SoundManager.Play(_playerSwitchSound, "Player Switch");
+
         DeactivateCurrentPlayer();
-        _currentPlayerIndex = GetWrappedPlayerIndex(_currentPlayerIndex + direction);
+        _currentPlayerIndex = newPlayerIndex;
         _players[_currentPlayerIndex].SupplyActivationInput(true);
 
         _cameraController.MoveTo(_players[_currentPlayerIndex].transform);

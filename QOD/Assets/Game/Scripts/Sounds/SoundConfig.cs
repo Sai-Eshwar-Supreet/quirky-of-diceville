@@ -53,12 +53,14 @@ public class SoundConfig : ScriptableObject
     /// <summary>
     /// Gets the volume category of the sound.
     /// </summary>
-    public AudioMixerGroup VolumeCategory => _mixerGroup;
+    public AudioMixerGroup MixerGroup => _mixerGroup;
 
     /// <summary>
     /// Gets the base volume level for the sound.
     /// </summary>
     public float BaseVolume => _baseVolume;
+
+    public int ClipsCount => _audioClips.Length;
 
     /// <summary>
     /// Retrieves a random audio clip from the associated audio clips.

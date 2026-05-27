@@ -87,6 +87,8 @@ GameObject:
   - component: {fileID: 3815825490670196305}
   - component: {fileID: 6254591904390832820}
   - component: {fileID: 252200805546492285}
+  - component: {fileID: 2276581972336698200}
+  - component: {fileID: 975984950601163220}
   m_Layer: 5
   m_Name: Appearance Toggle
   m_TagString: Untagged
@@ -196,6 +198,37 @@ MonoBehaviour:
   m_FlexibleWidth: 0
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
+--- !u!114 &2276581972336698200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972474472054496832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8480d961af5a017448e5ee34a9b44ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CustomEventHandler
+  isInteractable: 1
+--- !u!114 &975984950601163220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972474472054496832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935418821a7b5ef44801781ac49f34aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundHandler
+  _eventHandler: {fileID: 2276581972336698200}
+  _clickConfig: {fileID: 11400000, guid: ef1399eac5c502842855ff1f69f38547, type: 2}
+  _pointerEnterConfig: {fileID: 0}
+  _pointerExitConfig: {fileID: 0}
+  _beginDragConfig: {fileID: 0}
+  _endDragConfig: {fileID: 0}
 --- !u!1 &8400131551275136638
 GameObject:
   m_ObjectHideFlags: 0

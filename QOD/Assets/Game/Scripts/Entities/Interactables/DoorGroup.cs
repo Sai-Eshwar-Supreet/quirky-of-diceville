@@ -12,6 +12,10 @@ public class DoorGroup : MonoBehaviour
     [SerializeField] private Ease _openEase = Ease.InOutSine;
     [SerializeField] private Ease _closeEase = Ease.InOutSine;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource _source;
+    [SerializeField] private SoundConfig _moveSound;
+
     private readonly HashSet<Door> _doorList = new();
 
     private Tween _moveTween;
@@ -51,6 +55,9 @@ public class DoorGroup : MonoBehaviour
     {
         var isUnlocked = IsUnlocked();
         var targetPosition =  isUnlocked ? _openPosition : _closedPosition;
+
+        if (_doorTransform.localPosition == targetPosition) return;
+
         var speed = isUnlocked ? _openSpeed : _closeSpeed;
         var ease = isUnlocked ? _openEase : _closeEase;
         MoveDoor(targetPosition, speed, ease);
@@ -59,6 +66,8 @@ public class DoorGroup : MonoBehaviour
     private void MoveDoor(Vector3 position, float speed, Ease ease)
     {
         if (_moveTween.IsActive()) _moveTween?.Kill();
+
+        SoundManager.PlayDedicated(_moveSound, _source);
         _moveTween = _doorTransform.DOLocalMove(position, speed).SetEase(ease);
         _moveTween.onComplete += () => _moveTween = null;
     }

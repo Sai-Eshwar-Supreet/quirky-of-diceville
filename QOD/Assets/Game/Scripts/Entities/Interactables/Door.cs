@@ -24,6 +24,7 @@ public class Door : MonoBehaviour
         if (IsUnlocked == unlocked) return;
 
         IsUnlocked = unlocked;
+
         _doorVisual.SetLockState(unlocked);
         OnLockStateUpdated?.Invoke();
     }
