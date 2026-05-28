@@ -15,7 +15,16 @@ MonoBehaviour:
   _mixerGroup: {fileID: -6475501844960964363, guid: 4f529e3112ecb7142b28b7272733ec80, type: 2}
   _loop: 0
   _baseVolume: 1
-  _randomizePitch: 1
+  _randomizePitch: 0
   _pitchRange: {x: 0.9, y: 1.1}
   _audioClips:
-  - {fileID: 8300000, guid: 08398e9b336d9b44ea91b412ed01c98f, type: 3}
+  - {fileID: 8300000, guid: 3e951d305ce641b458c2340610eb5ffe, type: 3}
+  - {fileID: 8300000, guid: c26f13c4bc2228740a9abcd52dca669e, type: 3}
+  - {fileID: 8300000, guid: 97c83b20636db1d4393ff0541929494b, type: 3}
+  - {fileID: 8300000, guid: de2173cf32708ae43959632fccf4c69c, type: 3}
+  - {fileID: 8300000, guid: 795dcf4f6814b5a4fa02770e53c4f4ef, type: 3}
+  - {fileID: 8300000, guid: d34dedd990640bb4da16a23b8821a670, type: 3}
+  - {fileID: 8300000, guid: 68193b5d730a89c4ebfd6cd7b642552a, type: 3}
+  - {fileID: 8300000, guid: a1dd1488d0b3f9d4da50d4aa6678d04c, type: 3}
+  - {fileID: 8300000, guid: ca0c4eeb2ac888b4186d3ee3e5831113, type: 3}
+  - {fileID: 8300000, guid: 5926418c01180c3438c397771038bcca, type: 3}
